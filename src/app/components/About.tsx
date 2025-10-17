@@ -1,6 +1,58 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+
 export default function About() {
+  const [displayedCode, setDisplayedCode] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const codeLines = [
+    "const developer = {",
+    "  name: 'Alex Cyber',",
+    "  role: 'Fullstack Developer',",
+    "  skills: [",
+    "    'React', 'Node.js', 'TypeScript'",
+    "  ],",
+    "  passion: 'Innovation'",
+    "};"
+  ];
+
+  const fullCode = codeLines.join('\n');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (isVisible) {
+      let index = 0;
+      const timer = setInterval(() => {
+        setDisplayedCode(fullCode.slice(0, index));
+        index++;
+        if (index > fullCode.length) {
+          clearInterval(timer);
+        }
+      }, 50);
+
+      return () => clearInterval(timer);
+    }
+  }, [isVisible, fullCode]);
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" ref={sectionRef} className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -50,17 +102,20 @@ export default function About() {
           <div className="relative">
             <div className="relative w-full h-96 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 overflow-hidden">
               {/* Code Animation */}
-              <div className="absolute inset-4 font-mono text-sm text-green-400 opacity-60">
-                <div className="animate-pulse">
-                  <div className="mb-2">const developer = &#123;</div>
-                  <div className="ml-4 mb-1">name: <span className="text-cyan-400">'Alex Cyber'</span>,</div>
-                  <div className="ml-4 mb-1">role: <span className="text-pink-400">'Fullstack Developer'</span>,</div>
-                  <div className="ml-4 mb-1">skills: [</div>
-                  <div className="ml-8 mb-1 text-purple-400">'React', 'Node.js', 'TypeScript'</div>
-                  <div className="ml-4 mb-1">],</div>
-                  <div className="ml-4 mb-1">passion: <span className="text-yellow-400">'Innovation'</span></div>
-                  <div>&#125;;</div>
-                </div>
+              <div className="absolute inset-4 font-mono text-sm text-green-400">
+                <pre className="whitespace-pre-wrap">
+                  <span dangerouslySetInnerHTML={{
+                    __html: displayedCode
+                      .replace(/const developer = \{/, '<span class="text-green-400">const developer = {</span>')
+                      .replace(/'Alex Cyber'/, '<span class="text-cyan-400">\'Alex Cyber\'</span>')
+                      .replace(/'Fullstack Developer'/, '<span class="text-pink-400">\'Fullstack Developer\'</span>')
+                      .replace(/'React', 'Node\.js', 'TypeScript'/, '<span class="text-purple-400">\'React\', \'Node.js\', \'TypeScript\'</span>')
+                      .replace(/'Innovation'/, '<span class="text-yellow-400">\'Innovation\'</span>')
+                  }} />
+                  {isVisible && displayedCode.length < fullCode.length && (
+                    <span className="animate-pulse text-purple-400">|</span>
+                  )}
+                </pre>
               </div>
               
               {/* Glitch Effects */}
