@@ -122,16 +122,19 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className={`grid gap-8 transition-all duration-500 ${
+        <div className={`grid gap-8 transition-all duration-700 ease-in-out ${
           showAllProjects ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 lg:grid-cols-3'
         }`}>
           {paginatedProjects.map((project: any, index: number) => (
             <div
               key={project.id}
-              className="group relative bg-gray-900/50 rounded-lg border border-purple-500/20 overflow-hidden hover:border-purple-500/60 transition-all duration-500 cursor-pointer"
+              className="group relative bg-gray-900/50 rounded-lg border border-purple-500/20 overflow-hidden hover:border-purple-500/60 transition-all duration-500 cursor-pointer animate-fadeInUp"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              style={{ animationDelay: `${index * 200}ms` }}
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                animationFillMode: 'both'
+              }}
             >
               {/* Background Glow */}
               <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
@@ -204,11 +207,11 @@ export default function Portfolio() {
 
         {/* Pagination */}
         {showAllProjects && totalPages > 1 && (
-          <div className="flex justify-center items-center gap-4 mt-12">
+          <div className="flex justify-center items-center gap-4 mt-12 animate-slideInUp">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 transform"
               style={{ cursor: 'pointer' }}
             >
               ←
@@ -219,12 +222,15 @@ export default function Portfolio() {
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`px-4 py-2 font-mono rounded-lg transition-all duration-200 ${
+                  className={`px-4 py-2 font-mono rounded-lg transition-all duration-300 transform hover:scale-110 ${
                     currentPage === page
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50 scale-105'
                       : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                   }`}
-                  style={{ cursor: 'pointer' }}
+                  style={{ 
+                    cursor: 'pointer',
+                    animationDelay: `${page * 100}ms`
+                  }}
                 >
                   {page}
                 </button>
@@ -234,7 +240,7 @@ export default function Portfolio() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-300 transform"
               style={{ cursor: 'pointer' }}
             >
               →
@@ -249,13 +255,19 @@ export default function Portfolio() {
               setShowAllProjects(!showAllProjects);
               setCurrentPage(1);
             }}
-            className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 hover:scale-105"
+            className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 transform overflow-hidden"
             style={{ cursor: 'pointer' }}
           >
-            <span className="mr-2">
+            {/* Shimmer Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            
+            {/* Pulse Ring */}
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500 blur-sm"></div>
+            
+            <span className="relative z-10 mr-2 transition-all duration-300">
               {showAllProjects ? 'VER PROJETOS EM DESTAQUE' : 'VER TODOS OS PROJETOS'}
             </span>
-            <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
+            <span className="relative z-10 group-hover:translate-x-2 group-hover:scale-125 transition-all duration-300 inline-block">
               {showAllProjects ? '↑' : '→'}
             </span>
           </button>
