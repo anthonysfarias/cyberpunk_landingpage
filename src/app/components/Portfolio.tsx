@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const projects = [
+const allProjects = [
   {
     id: 1,
     title: 'CyberCommerce',
@@ -32,11 +32,83 @@ const projects = [
     color: 'from-green-600 to-teal-600',
     status: 'Development',
     link: '#'
+  },
+  {
+    id: 4,
+    title: 'CryptoTracker',
+    description: 'Plataforma de monitoramento de criptomoedas com alertas em tempo real e análise técnica avançada.',
+    tech: ['Vue.js', 'Python', 'FastAPI', 'WebSocket'],
+    image: '💰',
+    color: 'from-yellow-600 to-orange-600',
+    status: 'Live',
+    link: '#'
+  },
+  {
+    id: 5,
+    title: 'TaskFlow',
+    description: 'Sistema de gerenciamento de projetos com Kanban boards, timeline e colaboração em equipe.',
+    tech: ['React', 'GraphQL', 'Prisma', 'Docker'],
+    image: '📋',
+    color: 'from-indigo-600 to-purple-600',
+    status: 'Beta',
+    link: '#'
+  },
+  {
+    id: 6,
+    title: 'CloudSync',
+    description: 'Sincronização de arquivos multi-plataforma com criptografia end-to-end e backup automático.',
+    tech: ['Electron', 'Rust', 'AWS S3', 'Encryption'],
+    image: '☁️',
+    color: 'from-blue-600 to-cyan-600',
+    status: 'Development',
+    link: '#'
+  },
+  {
+    id: 7,
+    title: 'GameHub',
+    description: 'Plataforma social para gamers com matchmaking, tournaments e streaming integrado.',
+    tech: ['Angular', 'NestJS', 'WebRTC', 'Redis'],
+    image: '🎮',
+    color: 'from-red-600 to-pink-600',
+    status: 'Live',
+    link: '#'
+  },
+  {
+    id: 8,
+    title: 'EcoTrack',
+    description: 'App de sustentabilidade que monitora pegada de carbono pessoal e sugere ações eco-friendly.',
+    tech: ['React Native', 'Node.js', 'MongoDB', 'ML'],
+    image: '🌱',
+    color: 'from-green-600 to-emerald-600',
+    status: 'Beta',
+    link: '#'
+  },
+  {
+    id: 9,
+    title: 'CodeReview AI',
+    description: 'Ferramenta de revisão de código automatizada com IA para detectar bugs e melhorar qualidade.',
+    tech: ['Python', 'TensorFlow', 'GitHub API', 'Docker'],
+    image: '🔍',
+    color: 'from-purple-600 to-indigo-600',
+    status: 'Development',
+    link: '#'
   }
 ];
 
+const featuredProjects = allProjects.slice(0, 3);
+
 export default function Portfolio() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 6;
+  
+  const displayedProjects = showAllProjects ? allProjects : featuredProjects;
+  const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+  
+  const paginatedProjects = showAllProjects 
+    ? allProjects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage)
+    : featuredProjects;
 
   return (
     <section id="portfolio" className="py-20 relative">
@@ -50,8 +122,10 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className={`grid gap-8 transition-all duration-500 ${
+          showAllProjects ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1 lg:grid-cols-3'
+        }`}>
+          {paginatedProjects.map((project: any, index: number) => (
             <div
               key={project.id}
               className="group relative bg-gray-900/50 rounded-lg border border-purple-500/20 overflow-hidden hover:border-purple-500/60 transition-all duration-500 cursor-pointer"
@@ -97,7 +171,7 @@ export default function Portfolio() {
 
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
+                  {project.tech.map((tech: string) => (
                     <span
                       key={tech}
                       className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded border border-purple-500/30"
@@ -128,11 +202,62 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* View More Projects */}
+        {/* Pagination */}
+        {showAllProjects && totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-12">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              style={{ cursor: 'pointer' }}
+            >
+              ←
+            </button>
+            
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`px-4 py-2 font-mono rounded-lg transition-all duration-200 ${
+                    currentPage === page
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                      : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  }`}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+            
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-purple-600 text-white font-mono rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              style={{ cursor: 'pointer' }}
+            >
+              →
+            </button>
+          </div>
+        )}
+
+        {/* View More Projects Button */}
         <div className="text-center mt-12">
-          <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 hover:scale-105">
-            <span className="mr-2">VER TODOS OS PROJETOS</span>
-            <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">→</span>
+          <button 
+            onClick={() => {
+              setShowAllProjects(!showAllProjects);
+              setCurrentPage(1);
+            }}
+            className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-300 hover:scale-105"
+            style={{ cursor: 'pointer' }}
+          >
+            <span className="mr-2">
+              {showAllProjects ? 'VER PROJETOS EM DESTAQUE' : 'VER TODOS OS PROJETOS'}
+            </span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300 inline-block">
+              {showAllProjects ? '↑' : '→'}
+            </span>
           </button>
         </div>
       </div>
