@@ -57,19 +57,25 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105">
+            <button 
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105"
+              style={{ cursor: 'pointer' }}
+            >
               <span className="relative z-10">VER PROJETOS</span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             </button>
             
-            <button className="group px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-lg font-mono font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50">
+            <button 
+              className="group px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-lg font-mono font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50"
+              style={{ cursor: 'pointer' }}
+            >
               DOWNLOAD CV
             </button>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="flex justify-center mt-12">
             <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-purple-400 rounded-full mt-2 animate-bounce"></div>
             </div>
