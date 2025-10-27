@@ -33,17 +33,17 @@ export default function Hero() {
           {/* Name */}
           <h1 className="text-6xl md:text-8xl font-mono font-bold mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-pulse">
-              ALEX
+              ANTHONY
             </span>
             <span className="text-white ml-4">
-              CYBER
+              DEV
             </span>
           </h1>
 
           {/* Title */}
           <div className="text-2xl md:text-4xl font-mono text-green-400 mb-6 tracking-wider">
             <span className="border-r-2 border-green-400 animate-pulse">
-              FULLSTACK DEVELOPER / HACKER
+              FULLSTACK DEVELOPER / Software Engineer
             </span>
           </div>
 

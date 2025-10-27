@@ -22,7 +22,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         return 'bg-green-500/20 text-green-400 border-green-500/50';
       case 'Beta':
         return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50';
-      case 'Development':
+      case 'Em desenvolvimento':
         return 'bg-blue-500/20 text-blue-400 border-blue-500/50';
       default:
         return 'bg-gray-500/20 text-gray-400 border-gray-500/50';
@@ -44,9 +44,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       
       {/* Project Image/Icon */}
       <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-        <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
-          {project.image}
-        </div>
+        {project.image.startsWith('/') ? (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-52 h-52 object-contain group-hover:scale-110 transition-transform duration-300"
+          />
+        ) : (
+          <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
+            {project.image}
+          </div>
+        )}
         
         {/* Status Badge */}
         <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono font-bold border ${getStatusColor(project.status)}`}>

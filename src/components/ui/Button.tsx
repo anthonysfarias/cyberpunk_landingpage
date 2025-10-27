@@ -10,7 +10,8 @@ export const Button: React.FC<IButtonProps> = ({
   variant = 'primary',
   size = 'md',
   isLoading = false,
-  className = ''
+  className = '',
+  style
 }) => {
   const baseClasses = 'font-mono font-bold rounded-lg transition-all duration-500 transform overflow-hidden relative group';
   
@@ -37,6 +38,7 @@ export const Button: React.FC<IButtonProps> = ({
       onClick={onClick}
       disabled={disabled || isLoading}
       className={combinedClasses}
+      style={style}
     >
       {/* Shimmer Effect - only for primary variant when not loading */}
       {variant === 'primary' && !isLoading && !disabled && (

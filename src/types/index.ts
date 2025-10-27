@@ -7,7 +7,7 @@ export interface IProject {
   tech: string[];
   image: string;
   color: string;
-  status: 'Live' | 'Beta' | 'Development';
+  status: 'Live' | 'Beta' | 'Em desenvolvimento';
   link: string;
 }
 
@@ -38,6 +38,7 @@ export interface IButtonProps {
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface IPaginationProps {

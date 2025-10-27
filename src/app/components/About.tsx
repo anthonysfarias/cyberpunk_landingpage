@@ -37,7 +37,7 @@ export default function About() {
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
                 Desenvolvedor <span className="text-cyan-400 font-mono">fullstack</span> especializado em criar 
-                experiências digitais inovadoras. Com expertise em <span className="text-purple-400 font-mono">React</span>, 
+                experiências digitais inovadoras. Com expertise em <span className="text-purple-400 font-mono">Next.js</span>, 
                 <span className="text-green-400 font-mono"> Node.js</span> e <span className="text-blue-400 font-mono">TypeScript</span>, 
                 transformo ideias complexas em soluções elegantes e funcionais.
               </p>
@@ -57,11 +57,11 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-mono font-bold text-purple-400">5+</div>
+                <div className="text-3xl font-mono font-bold text-purple-400">4+</div>
                 <div className="text-sm text-gray-400 font-mono">ANOS EXP</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-mono font-bold text-cyan-400">50+</div>
+                <div className="text-3xl font-mono font-bold text-cyan-400">10+</div>
                 <div className="text-sm text-gray-400 font-mono">PROJETOS</div>
               </div>
               <div className="text-center">

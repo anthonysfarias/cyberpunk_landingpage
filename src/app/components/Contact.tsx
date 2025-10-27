@@ -138,7 +138,7 @@ export default function Contact() {
                   <div className="text-2xl">📧</div>
                   <div>
                     <h3 className="font-mono font-bold text-purple-400">EMAIL</h3>
-                    <p className="text-gray-300 font-mono">alex.cyber@dev.com</p>
+                    <p className="text-gray-300 font-mono">akileslive.farias10@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                   <div className="text-2xl">📱</div>
                   <div>
                     <h3 className="font-mono font-bold text-cyan-400">TELEFONE</h3>
-                    <p className="text-gray-300 font-mono">+55 (11) 99999-9999</p>
+                    <p className="text-gray-300 font-mono">+55 (11) 95468-4812</p>
                   </div>
                 </div>
               </div>
