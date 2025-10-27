@@ -64,3 +64,15 @@ export interface IUseTypingAnimation {
   isComplete: boolean;
   startAnimation: () => void;
 }
+
+export interface ITimelineItem {
+  id: number;
+  year: string;
+  title: string;
+  company: string;
+  description: string;
+  technologies: string[];
+  type: 'work' | 'education' | 'project';
+  icon: string;
+  color: string;
+}

@@ -1,0 +1,81 @@
+'use client';
+
+import { getTimelineItems } from '@/data/timeline';
+import { TimelineItem } from '@/components/ui/TimelineItem';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
+// SRP: Timeline component only handles timeline section display
+// DIP: Depends on abstractions (data services, components) not concretions
+export default function Timeline() {
+  const timelineItems = getTimelineItems();
+  const { ref: timelineRef, isVisible: timelineVisible } = useIntersectionObserver(0.2);
+
+  return (
+    <section id="timeline" className="py-20 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+            &lt;TIMELINE/&gt;
+          </h2>
+          <p className="text-xl text-gray-300 font-mono">
+            Minha jornada profissional e acadêmica
+          </p>
+        </div>
+
+        {/* Timeline Container */}
+        <div ref={timelineRef as React.RefObject<HTMLDivElement>} className="relative">
+          {/* Central Line */}
+          <div className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 transition-all duration-2000 ease-out ${
+            timelineVisible 
+              ? 'h-full opacity-30' 
+              : 'h-0 opacity-0'
+          }`}></div>
+          
+          {/* Timeline Items */}
+          <div className="relative">
+            {timelineItems.map((item, index) => (
+              <TimelineItem
+                key={item.id}
+                item={item}
+                index={index}
+                isLeft={index % 2 === 0}
+              />
+            ))}
+          </div>
+
+          {/* Timeline End */}
+          <div className="flex justify-center">
+            <div className="w-6 h-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg animate-pulse"></div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+          <div className="text-center p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30">
+            <div className="text-3xl font-mono font-bold text-purple-400 mb-2">3+</div>
+            <div className="text-sm text-gray-400 font-mono">ANOS DE EXPERIÊNCIA</div>
+          </div>
+          
+          <div className="text-center p-6 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 rounded-lg border border-cyan-500/30">
+            <div className="text-3xl font-mono font-bold text-cyan-400 mb-2">15+</div>
+            <div className="text-sm text-gray-400 font-mono">PROJETOS CONCLUÍDOS</div>
+          </div>
+          
+          <div className="text-center p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30">
+            <div className="text-3xl font-mono font-bold text-green-400 mb-2">10+</div>
+            <div className="text-sm text-gray-400 font-mono">TECNOLOGIAS DOMINADAS</div>
+          </div>
+          
+          <div className="text-center p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-lg border border-orange-500/30">
+            <div className="text-3xl font-mono font-bold text-orange-400 mb-2">100%</div>
+            <div className="text-sm text-gray-400 font-mono">DEDICAÇÃO</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

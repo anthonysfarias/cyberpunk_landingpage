@@ -1,6 +1,7 @@
 import Hero from './components/Hero';
 import About from './components/About';
 import Stack from './components/Stack';
+import Timeline from './components/Timeline';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 
@@ -28,6 +29,7 @@ export default function Home() {
               <a href="#hero" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">Home</a>
               <a href="#about" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">About</a>
               <a href="#stack" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">Stack</a>
+              <a href="#timeline" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">Timeline</a>
               <a href="#portfolio" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">Portfolio</a>
               <a href="#contact" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-mono">Contact</a>
             </div>
@@ -40,6 +42,7 @@ export default function Home() {
         <Hero />
         <About />
         <Stack />
+        <Timeline />
         <Portfolio />
         <Contact />
       </main>
