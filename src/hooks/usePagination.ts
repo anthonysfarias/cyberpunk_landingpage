@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// SRP: Single responsibility - only handles pagination logic
+// SRP: Responsabilidade única - apenas gerencia lógica de paginação
 export const usePagination = <T>(
   items: T[],
   itemsPerPage: number = 6

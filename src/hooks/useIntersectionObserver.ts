@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { IUseIntersectionObserver } from '@/types';
 
-// SRP: Single responsibility - only handles intersection observation
+// SRP: Responsabilidade única - apenas gerencia observação de interseção
 export const useIntersectionObserver = (
   threshold: number = 0.3
 ): IUseIntersectionObserver => {

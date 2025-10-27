@@ -1,6 +1,6 @@
 import { ITimelineItem } from '@/types';
 
-// DIP: Data abstraction - timeline data separated from components
+// DIP: Abstração de dados - dados da timeline separados dos componentes
 export const timelineData: ITimelineItem[] = [
   {
     id: 1,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { IButtonProps } from '@/types';
 
-// SRP: Single responsibility - only renders buttons
-// OCP: Open for extension through variants and props
+// SRP: Responsabilidade única - apenas renderiza botões
+// OCP: Aberto para extensão através de variantes e props
 export const Button: React.FC<IButtonProps> = ({
   children,
   onClick,

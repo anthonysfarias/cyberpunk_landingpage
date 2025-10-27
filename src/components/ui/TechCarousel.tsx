@@ -8,7 +8,7 @@ interface TechCarouselProps {
   category: string;
 }
 
-// SRP: Single responsibility - only handles carousel functionality
+// SRP: Responsabilidade única - apenas gerencia funcionalidade do carrossel
 export const TechCarousel: React.FC<TechCarouselProps> = ({
   technologies,
   category
@@ -16,7 +16,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
   
-  // Responsive items per view
+  // Itens responsivos por visualização
   const getItemsPerView = () => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth < 768) return 1; // Mobile: 1 card
@@ -29,11 +29,11 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
   const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
   const maxIndex = Math.max(0, technologies.length - itemsPerView);
 
-  // Handle window resize
+  // Gerencia redimensionamento da janela
   useEffect(() => {
     const handleResize = () => {
       setItemsPerView(getItemsPerView());
-      setCurrentIndex(0); // Reset to first slide on resize
+      setCurrentIndex(0); // Reseta para o primeiro slide no redimensionamento
     };
 
     window.addEventListener('resize', handleResize);
@@ -52,7 +52,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
 
   return (
     <div className="relative">
-      {/* Navigation Buttons */}
+      {/* Botões de Navegação */}
       {technologies.length > itemsPerView && (
         <>
           <button
@@ -75,7 +75,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
         </>
       )}
 
-      {/* Carousel Container */}
+      {/* Container do Carrossel */}
       <div className="overflow-hidden px-4">
         <div 
           className="flex transition-transform duration-500 ease-in-out gap-8"
@@ -98,7 +98,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
         </div>
       </div>
 
-      {/* Indicators */}
+      {/* Indicadores */}
       {technologies.length > itemsPerView && (
         <div className="flex justify-center mt-8 gap-3">
           {Array.from({ length: maxIndex + 1 }, (_, i) => (

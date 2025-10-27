@@ -2,7 +2,7 @@ import React from 'react';
 import { IPaginationProps } from '@/types';
 import { Button } from './Button';
 
-// SRP: Single responsibility - only handles pagination UI
+// SRP: Responsabilidade única - apenas gerencia interface de paginação
 export const Pagination: React.FC<IPaginationProps> = ({
   currentPage,
   totalPages,

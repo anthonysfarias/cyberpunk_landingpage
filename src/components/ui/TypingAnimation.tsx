@@ -2,7 +2,7 @@ import React from 'react';
 import { ITypingAnimationProps } from '@/types';
 import { useTypingAnimation } from '@/hooks/useTypingAnimation';
 
-// SRP: Single responsibility - only handles typing animation display
+// SRP: Responsabilidade única - apenas gerencia exibição de animação de digitação
 export const TypingAnimation: React.FC<ITypingAnimationProps> = ({
   text,
   speed = 50,
@@ -16,7 +16,7 @@ export const TypingAnimation: React.FC<ITypingAnimationProps> = ({
     }
   }, [isComplete, onComplete]);
 
-  // Auto-start animation when component mounts
+  // Inicia automaticamente a animação quando o componente é montado
   React.useEffect(() => {
     startAnimation();
   }, []);

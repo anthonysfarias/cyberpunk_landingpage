@@ -9,7 +9,7 @@ interface ProjectCardProps {
   onHover: (id: number | null) => void;
 }
 
-// SRP: Single responsibility - only renders project cards
+// SRP: Responsabilidade única - apenas renderiza cards de projeto
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   index,

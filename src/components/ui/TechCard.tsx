@@ -52,7 +52,7 @@ interface TechCardProps {
   onHover: (name: string | null) => void;
 }
 
-// Icon mapping local
+// Mapeamento local de ícones
 const iconMap = {
   FaReact,
   SiTypescript,
@@ -96,61 +96,61 @@ const iconMap = {
   SiNotion
 };
 
-// SRP: Single responsibility - only renders technology cards
+// SRP: Responsabilidade única - apenas renderiza cards de tecnologia
 export const TechCard: React.FC<TechCardProps> = ({
   tech,
   index,
   isHovered,
   onHover
 }) => {
-  // Get the icon component dynamically
+  // Obtém o componente de ícone dinamicamente
   const IconComponent = iconMap[tech.icon as keyof typeof iconMap];
   
-  // Official brand colors for each technology
+  // Cores oficiais das marcas para cada tecnologia
   const getIconColor = (iconName: string) => {
     const colorMap: Record<string, string> = {
-      'FaReact': '#61DAFB',        // React official cyan
-      'SiTypescript': '#3178C6',   // TypeScript official blue
-      'FaNodeJs': '#339933',       // Node.js official green
-      'SiNextdotjs': '#FFFFFF',    // Next.js official white (better visibility)
-      'FaDocker': '#2496ED',       // Docker official blue
-      'SiPostgresql': '#336791',   // PostgreSQL official blue
-      'SiMongodb': '#47A248',      // MongoDB official green
-      'FaAws': '#FF9900',          // AWS official orange
-      'FaGitAlt': '#F05032',       // Git official red-orange
-      'SiGraphql': '#E10098',      // GraphQL official pink
-      'SiRedis': '#DC382D',        // Redis official red
-      'SiKubernetes': '#326CE5',   // Kubernetes official blue
-      'SiVuedotjs': '#4FC08D',     // Vue.js official green
-      'SiAngular': '#DD0031',      // Angular official red
-      'SiTailwindcss': '#06B6D4',  // Tailwind CSS official cyan
-      'SiSass': '#CC6699',         // Sass official pink
-      'SiVite': '#646CFF',         // Vite official purple
-      'SiExpress': '#000000',      // Express official black
-      'SiNestjs': '#E0234E',       // NestJS official red
-      'SiPython': '#3776AB',       // Python official blue
-      'SiFastapi': '#009688',      // FastAPI official teal
-      'FaJava': '#ED8B00',         // Java official orange
-      'SiSpring': '#6DB33F',       // Spring official green
-      'SiMysql': '#4479A1',        // MySQL official blue
-      'SiSqlite': '#003B57',       // SQLite official dark blue
-      'SiFirebase': '#FFCA28',     // Firebase official yellow
-      'SiGithubactions': '#2088FF', // GitHub Actions official blue
-      'SiJenkins': '#D24939',      // Jenkins official red
-      'SiTerraform': '#623CE4',    // Terraform official purple
-      'SiNginx': '#009639',        // Nginx official green
-      'SiReact': '#61DAFB',        // React Native (same as React)
-      'SiFlutter': '#02569B',      // Flutter official blue
-      'SiSwift': '#FA7343',        // Swift official orange
-      'SiKotlin': '#7F52FF',       // Kotlin official purple
-      'SiExpo': '#000020',         // Expo official dark
-      'SiFigma': '#F24E1E',        // Figma official red
-      'SiPostman': '#FF6C37',      // Postman official orange
-      'SiJira': '#0052CC',         // Jira official blue
-      'SiSlack': '#4A154B',        // Slack official purple
-      'SiNotion': '#000000'        // Notion official black
+      'FaReact': '#61DAFB',        // React ciano oficial
+      'SiTypescript': '#3178C6',   // TypeScript azul oficial
+      'FaNodeJs': '#339933',       // Node.js verde oficial
+      'SiNextdotjs': '#FFFFFF',    // Next.js branco oficial (melhor visibilidade)
+      'FaDocker': '#2496ED',       // Docker azul oficial
+      'SiPostgresql': '#336791',   // PostgreSQL azul oficial
+      'SiMongodb': '#47A248',      // MongoDB verde oficial
+      'FaAws': '#FF9900',          // AWS laranja oficial
+      'FaGitAlt': '#F05032',       // Git vermelho-laranja oficial
+      'SiGraphql': '#E10098',      // GraphQL rosa oficial
+      'SiRedis': '#DC382D',        // Redis vermelho oficial
+      'SiKubernetes': '#326CE5',   // Kubernetes azul oficial
+      'SiVuedotjs': '#4FC08D',     // Vue.js verde oficial
+      'SiAngular': '#DD0031',      // Angular vermelho oficial
+      'SiTailwindcss': '#06B6D4',  // Tailwind CSS ciano oficial
+      'SiSass': '#CC6699',         // Sass rosa oficial
+      'SiVite': '#646CFF',         // Vite roxo oficial
+      'SiExpress': '#000000',      // Express preto oficial
+      'SiNestjs': '#E0234E',       // NestJS vermelho oficial
+      'SiPython': '#3776AB',       // Python azul oficial
+      'SiFastapi': '#009688',      // FastAPI azul-esverdeado oficial
+      'FaJava': '#ED8B00',         // Java laranja oficial
+      'SiSpring': '#6DB33F',       // Spring verde oficial
+      'SiMysql': '#4479A1',        // MySQL azul oficial
+      'SiSqlite': '#003B57',       // SQLite azul escuro oficial
+      'SiFirebase': '#FFCA28',     // Firebase amarelo oficial
+      'SiGithubactions': '#2088FF', // GitHub Actions azul oficial
+      'SiJenkins': '#D24939',      // Jenkins vermelho oficial
+      'SiTerraform': '#623CE4',    // Terraform roxo oficial
+      'SiNginx': '#009639',        // Nginx verde oficial
+      'SiReact': '#61DAFB',        // React Native (mesmo do React)
+      'SiFlutter': '#02569B',      // Flutter azul oficial
+      'SiSwift': '#FA7343',        // Swift laranja oficial
+      'SiKotlin': '#7F52FF',       // Kotlin roxo oficial
+      'SiExpo': '#000020',         // Expo escuro oficial
+      'SiFigma': '#F24E1E',        // Figma vermelho oficial
+      'SiPostman': '#FF6C37',      // Postman laranja oficial
+      'SiJira': '#0052CC',         // Jira azul oficial
+      'SiSlack': '#4A154B',        // Slack roxo oficial
+      'SiNotion': '#000000'        // Notion preto oficial
     };
-    return colorMap[iconName] || '#8B5CF6'; // Default purple if not found
+    return colorMap[iconName] || '#8B5CF6'; // Roxo padrão se não encontrado
   };
 
   return (
@@ -160,7 +160,7 @@ export const TechCard: React.FC<TechCardProps> = ({
       onMouseLeave={() => onHover(null)}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Glow Effect */}
+      {/* Efeito de Brilho */}
       <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300`}></div>
       
       <div className="relative z-10 text-center flex flex-col h-full">
@@ -185,7 +185,7 @@ export const TechCard: React.FC<TechCardProps> = ({
         </p>
       </div>
 
-      {/* Hover Glow */}
+      {/* Brilho no Hover */}
       <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} blur-xl opacity-20`}></div>
       </div>

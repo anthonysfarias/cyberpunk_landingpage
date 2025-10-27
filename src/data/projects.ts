@@ -1,6 +1,6 @@
 import { IProject } from '@/types';
 
-// DIP: Data abstraction - projects data separated from components
+// DIP: Abstração de dados - dados dos projetos separados dos componentes
 export const projectsData: IProject[] = [
   {
     id: 1,

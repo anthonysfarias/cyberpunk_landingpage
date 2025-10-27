@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { IUseTypingAnimation } from '@/types';
 
-// SRP: Single responsibility - only handles typing animation logic
+// SRP: Responsabilidade única - apenas gerencia lógica de animação de digitação
 export const useTypingAnimation = (
   text: string,
   speed: number = 50,

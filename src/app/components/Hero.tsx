@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Glitch Effect Background */}
+        {/* Fundo com Efeito Glitch */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-cyan-500 rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -30,7 +30,7 @@ export default function Hero() {
         </div>
 
         <div className="relative z-10">
-          {/* Name */}
+          {/* Nome */}
           <h1 className="text-6xl md:text-8xl font-mono font-bold mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-pulse">
               ANTHONY
@@ -40,14 +40,14 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Title */}
+          {/* Título */}
           <div className="text-2xl md:text-4xl font-mono text-green-400 mb-6 tracking-wider">
             <span className="border-r-2 border-green-400 animate-pulse">
               FULLSTACK DEVELOPER / Software Engineer
             </span>
           </div>
 
-          {/* Animated Tagline */}
+          {/* Slogan Animado */}
           <div className="text-xl md:text-2xl text-gray-300 mb-12 h-8">
             <span className="font-mono">
               {text}
@@ -55,7 +55,7 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Botões de Ação */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
               className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105"
@@ -74,7 +74,7 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Indicador de Scroll */}
           <div className="flex justify-center mt-12">
             <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-purple-400 rounded-full mt-2 animate-bounce"></div>

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useTypingAnimation } from '@/hooks/useTypingAnimation';
 
-// SRP: About component only handles about section display
+// SRP: Componente About apenas gerencia exibição da seção sobre
 export default function About() {
   const { ref: sectionRef, isVisible } = useIntersectionObserver(0.3);
   
@@ -28,7 +28,7 @@ export default function About() {
     <section id="about" ref={sectionRef} className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
+          {/* Conteúdo de Texto */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
               &lt;SOBRE/&gt;
@@ -54,7 +54,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Stats */}
+            {/* Estatísticas */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
                 <div className="text-3xl font-mono font-bold text-purple-400">4+</div>
@@ -71,10 +71,10 @@ export default function About() {
             </div>
           </div>
 
-          {/* Visual Element */}
+          {/* Elemento Visual */}
           <div className="relative">
             <div className="relative w-full h-96 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 overflow-hidden">
-              {/* Code Animation */}
+              {/* Animação de Código */}
               <div className="absolute inset-4 font-mono text-sm text-green-400">
                 <pre className="whitespace-pre-wrap">
                   <span dangerouslySetInnerHTML={{
@@ -91,7 +91,7 @@ export default function About() {
                 </pre>
               </div>
               
-              {/* Glitch Effects */}
+              {/* Efeitos Glitch */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
               <div className="absolute bottom-0 left-0 w-16 h-16 bg-cyan-500/20 rounded-full blur-lg animate-pulse delay-1000"></div>
             </div>

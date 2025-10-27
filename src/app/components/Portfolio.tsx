@@ -7,8 +7,8 @@ import { ProjectCard } from '@/components/ui/ProjectCard';
 import { Pagination } from '@/components/ui/Pagination';
 import { Button } from '@/components/ui/Button';
 
-// SRP: Portfolio component only handles portfolio display logic
-// DIP: Depends on abstractions (data services, hooks) not concretions
+// SRP: Componente Portfolio apenas gerencia lógica de exibição do portfólio
+// DIP: Depende de abstrações (serviços de dados, hooks) não de concretizações
 export default function Portfolio() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);

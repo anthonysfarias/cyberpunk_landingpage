@@ -10,7 +10,7 @@ import {
   FaTools 
 } from 'react-icons/fa';
 
-// Icon mapping for categories
+// Mapeamento de ícones para categorias
 const categoryIconMap = {
   FaPalette,
   FaBolt,
@@ -20,7 +20,7 @@ const categoryIconMap = {
   FaTools
 };
 
-// SRP: Single responsibility - only handles tab navigation and category display
+// SRP: Responsabilidade única - apenas gerencia navegação de tabs e exibição de categorias
 export const TechTabs: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
   const technologiesByCategory = getTechnologiesByCategory();
@@ -28,7 +28,7 @@ export const TechTabs: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Tab Navigation */}
+      {/* Navegação das Abas */}
       <div className="flex flex-wrap justify-center gap-3 mb-16">
         {Object.entries(categoryLabels).map(([key, label]) => {
           const IconComponent = categoryIconMap[label.icon as keyof typeof categoryIconMap];
@@ -51,7 +51,7 @@ export const TechTabs: React.FC = () => {
               <span className="text-base font-semibold">{label.name}</span>
               
               
-              {/* Glow effect */}
+              {/* Efeito de brilho */}
               {isActive && (
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 opacity-20 blur-sm -z-10"></div>
               )}
@@ -60,7 +60,7 @@ export const TechTabs: React.FC = () => {
         })}
       </div>
 
-      {/* Tab Content */}
+      {/* Conteúdo das Abas */}
       <div className="relative">
         {Object.entries(technologiesByCategory).map(([category, technologies]) => (
           <div
@@ -81,7 +81,7 @@ export const TechTabs: React.FC = () => {
         ))}
       </div>
 
-      {/* Category Info */}
+      {/* Informações da Categoria */}
       <div className="text-center mt-12">
         <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-xl border-2 border-purple-500/30 backdrop-blur-sm">
           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse"></div>

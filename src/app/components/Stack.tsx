@@ -3,8 +3,8 @@
 import { TechTabs } from '@/components/ui/TechTabs';
 import { FaPalette, FaBolt, FaCloud } from 'react-icons/fa';
 
-// SRP: Stack component only handles stack section display
-// DIP: Depends on abstractions (TechTabs component) not concretions
+// SRP: Componente Stack apenas gerencia exibição da seção stack
+// DIP: Depende de abstrações (componente TechTabs) não de concretizações
 export default function Stack() {
 
   return (
@@ -19,7 +19,7 @@ export default function Stack() {
           </p>
         </div>
 
-        {/* Tech Tabs with Carousel */}
+        {/* Abas de Tecnologia com Carrossel */}
         <TechTabs />
       </div>
     </section>

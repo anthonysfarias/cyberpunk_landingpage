@@ -1,4 +1,4 @@
-// Core interfaces following ISP (Interface Segregation Principle)
+// Interfaces principais seguindo ISP (Princípio da Segregação de Interface)
 
 export interface IProject {
   id: number;
@@ -53,7 +53,7 @@ export interface ITypingAnimationProps {
   onComplete?: () => void;
 }
 
-// Animation hooks interfaces
+// Interfaces dos hooks de animação
 export interface IUseIntersectionObserver {
   ref: React.RefObject<HTMLElement | null>;
   isVisible: boolean;

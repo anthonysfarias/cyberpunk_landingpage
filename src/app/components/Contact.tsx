@@ -15,7 +15,7 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Simula envio do formulário
     setTimeout(() => {
       setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
@@ -43,7 +43,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Formulário de Contato */}
           <div className="space-y-6">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -100,17 +100,17 @@ export default function Contact() {
                 className="group relative w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none transform overflow-hidden"
                 style={{ cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
               >
-                {/* Shimmer Effect */}
+                {/* Efeito Shimmer */}
                 {!isSubmitting && (
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 )}
                 
-                {/* Pulse Ring */}
+                {/* Anel Pulsante */}
                 {!isSubmitting && (
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500 blur-sm"></div>
                 )}
                 
-                {/* Loading Ring */}
+                {/* Anel de Carregamento */}
                 {isSubmitting && (
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 opacity-20 animate-pulse"></div>
                 )}
@@ -129,9 +129,9 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Contact Info & Social Links */}
+          {/* Informações de Contato e Links Sociais */}
           <div className="space-y-8">
-            {/* Contact Methods */}
+            {/* Métodos de Contato */}
             <div className="space-y-6">
               <div className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30">
                 <div className="flex items-center space-x-4">
@@ -164,7 +164,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Links Sociais */}
             <div>
               <h3 className="text-xl font-mono font-bold text-white mb-6">REDES SOCIAIS</h3>
               <div className="grid grid-cols-2 gap-4">
@@ -213,7 +213,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Rodapé */}
       <footer className="mt-20 pt-8 border-t border-purple-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
