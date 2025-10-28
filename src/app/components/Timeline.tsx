@@ -49,7 +49,9 @@ export default function Timeline() {
 
           {/* Final da Timeline */}
           <div className="flex justify-center">
-            <div className="w-6 h-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg animate-pulse"></div>
+            <div className={`w-6 h-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg transition-all duration-500 ${
+              timelineVisible ? 'scale-100' : 'scale-0'
+            }`} style={{ transitionDelay: '1000ms' }}></div>
           </div>
         </div>
 
