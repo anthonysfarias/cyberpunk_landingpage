@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { SocialLinks } from '@/components/ui/SocialLinks';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -167,47 +168,7 @@ export default function Contact() {
             {/* Links Sociais */}
             <div>
               <h3 className="text-xl font-mono font-bold text-white mb-6">REDES SOCIAIS</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-4 bg-gray-900/50 border border-purple-500/30 rounded-lg hover:border-purple-500/60 transition-all duration-300 text-center"
-                >
-                  <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">🐙</div>
-                  <div className="font-mono text-sm text-gray-300 group-hover:text-purple-400">GitHub</div>
-                </a>
-
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-4 bg-gray-900/50 border border-cyan-500/30 rounded-lg hover:border-cyan-500/60 transition-all duration-300 text-center"
-                >
-                  <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">💼</div>
-                  <div className="font-mono text-sm text-gray-300 group-hover:text-cyan-400">LinkedIn</div>
-                </a>
-
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-4 bg-gray-900/50 border border-pink-500/30 rounded-lg hover:border-pink-500/60 transition-all duration-300 text-center"
-                >
-                  <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">🐦</div>
-                  <div className="font-mono text-sm text-gray-300 group-hover:text-pink-400">Twitter</div>
-                </a>
-
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-4 bg-gray-900/50 border border-orange-500/30 rounded-lg hover:border-orange-500/60 transition-all duration-300 text-center"
-                >
-                  <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">📷</div>
-                  <div className="font-mono text-sm text-gray-300 group-hover:text-orange-400">Instagram</div>
-                </a>
-              </div>
+              <SocialLinks layout="grid" showDescription={false} />
             </div>
           </div>
         </div>

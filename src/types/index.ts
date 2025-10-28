@@ -76,3 +76,13 @@ export interface ITimelineItem {
   icon: string;
   color: string;
 }
+
+export interface ISocialMedia {
+  name: string;
+  icon: string;
+  url: string;
+  color: string;
+  hoverColor: string;
+  textColor: string;
+  description: string;
+}
