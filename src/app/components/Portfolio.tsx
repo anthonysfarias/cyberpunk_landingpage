@@ -30,6 +30,19 @@ export default function Portfolio() {
     resetToFirstPage();
   };
 
+  const handlePageChange = (page: number) => {
+    goToPage(page);
+    
+    // Scroll suave até o título PROJETOS
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section id="portfolio" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +74,7 @@ export default function Portfolio() {
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onPageChange={goToPage}
+            onPageChange={handlePageChange}
           />
         )}
 
