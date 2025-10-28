@@ -2,6 +2,7 @@
 
 import { getTimelineItems } from '@/data/timeline';
 import { TimelineItem } from '@/components/ui/TimelineItem';
+import { projectService } from '@/services/projectService';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 // SRP: Componente Timeline apenas gerencia exibição da seção timeline
@@ -9,6 +10,10 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 export default function Timeline() {
   const timelineItems = getTimelineItems();
   const { ref: timelineRef, isVisible: timelineVisible } = useIntersectionObserver(0.2);
+  
+  // DIP: Usando serviço para obter estatísticas reais
+  const totalProjects = projectService.getTotalProjectsCount();
+  const technologiesCount = projectService.getTechnologiesUsed().length;
 
   return (
     <section id="timeline" className="py-20 relative overflow-hidden">
@@ -73,7 +78,7 @@ export default function Timeline() {
           }`} style={{ transitionDelay: '1400ms' }}>
             <div className={`text-3xl font-mono font-bold text-cyan-400 mb-2 ${
               timelineVisible ? 'animate-cyberpunk-complete' : ''
-            }`} style={{ animationDelay: '1600ms' }}>15+</div>
+            }`} style={{ animationDelay: '1600ms' }}>{totalProjects}+</div>
             <div className={`text-sm text-gray-200 font-mono font-semibold ${
               timelineVisible ? 'animate-cyberpunk-typewriter' : ''
             }`} style={{ animationDelay: '1800ms' }}>PROJETOS CONCLUÍDOS</div>
@@ -84,7 +89,7 @@ export default function Timeline() {
           }`} style={{ transitionDelay: '1600ms' }}>
             <div className={`text-3xl font-mono font-bold text-green-400 mb-2 ${
               timelineVisible ? 'animate-cyberpunk-complete' : ''
-            }`} style={{ animationDelay: '1800ms' }}>10+</div>
+            }`} style={{ animationDelay: '1800ms' }}>{technologiesCount}+</div>
             <div className={`text-sm text-gray-200 font-mono font-semibold ${
               timelineVisible ? 'animate-cyberpunk-typewriter' : ''
             }`} style={{ animationDelay: '2000ms' }}>TECNOLOGIAS DOMINADAS</div>

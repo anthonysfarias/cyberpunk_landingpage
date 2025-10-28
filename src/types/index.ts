@@ -30,16 +30,26 @@ export interface IAnimationConfig {
   easing?: string;
 }
 
-export interface IButtonProps {
+// ISP: Interfaces segregadas por responsabilidade
+export interface IButtonBaseProps {
   children: React.ReactNode;
-  onClick?: () => void;
   disabled?: boolean;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  isLoading?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
+
+export interface IButtonInteractionProps {
+  onClick?: () => void;
+  isLoading?: boolean;
+}
+
+export interface IButtonStyleProps {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+// Interface completa que combina as específicas
+export interface IButtonProps extends IButtonBaseProps, IButtonInteractionProps, IButtonStyleProps {}
 
 export interface IPaginationProps {
   currentPage: number;

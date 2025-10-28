@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { getAllProjects, getFeaturedProjects } from '@/data/projects';
 import { usePagination } from '@/hooks/usePagination';
 import { ProjectCard } from '@/components/ui/ProjectCard';
 import { Pagination } from '@/components/ui/Pagination';
 import { Button } from '@/components/ui/Button';
+import { scrollService } from '@/services/scrollService';
+import { projectService } from '@/services/projectService';
 
 // SRP: Componente Portfolio apenas gerencia lógica de exibição do portfólio
 // DIP: Depende de abstrações (serviços de dados, hooks) não de concretizações
@@ -13,8 +14,8 @@ export default function Portfolio() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   
-  const allProjects = getAllProjects();
-  const featuredProjects = getFeaturedProjects();
+  const allProjects = projectService.getAllProjects();
+  const featuredProjects = projectService.getFeaturedProjects();
   
   const currentProjects = showAllProjects ? allProjects : featuredProjects;
   const {
@@ -33,14 +34,8 @@ export default function Portfolio() {
   const handlePageChange = (page: number) => {
     goToPage(page);
     
-    // Scroll suave até o título PROJETOS
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+    // DIP: Usando abstração do serviço de scroll
+    scrollService.scrollToElement('portfolio');
   };
 
   return (

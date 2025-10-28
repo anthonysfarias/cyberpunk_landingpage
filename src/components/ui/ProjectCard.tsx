@@ -1,6 +1,7 @@
 import React from 'react';
 import { IProject } from '@/types';
 import { Button } from './Button';
+import { StatusService } from '@/factories/statusFactory';
 
 interface ProjectCardProps {
   project: IProject;
@@ -10,24 +11,14 @@ interface ProjectCardProps {
 }
 
 // SRP: Responsabilidade única - apenas renderiza cards de projeto
+// OCP: Usa factory para status, aberto para novos tipos
+// DIP: Depende da abstração StatusService
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   index,
   isHovered,
   onHover
 }) => {
-  const getStatusColor = (status: IProject['status']) => {
-    switch (status) {
-      case 'Live':
-        return 'bg-green-500/20 text-green-400 border-green-500/50';
-      case 'Beta':
-        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50';
-      case 'Em desenvolvimento':
-        return 'bg-blue-500/20 text-blue-400 border-blue-500/50';
-      default:
-        return 'bg-gray-500/20 text-gray-400 border-gray-500/50';
-    }
-  };
 
   return (
     <div
@@ -57,8 +48,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         
         {/* Status Badge */}
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono font-bold border ${getStatusColor(project.status)}`}>
-          {project.status}
+        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono font-bold border ${StatusService.getStatusClasses(project.status)}`}>
+          {StatusService.getStatusLabel(project.status)}
         </div>
 
         {/* Hover Overlay */}
