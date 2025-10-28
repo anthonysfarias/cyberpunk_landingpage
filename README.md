@@ -4,9 +4,10 @@
 [![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.14-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![SOLID Principles](https://img.shields.io/badge/Architecture-SOLID-gold?style=for-the-badge&logo=typescript)](https://en.wikipedia.org/wiki/SOLID)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-> Uma landing page moderna e interativa com tema cyberpunk, desenvolvida para apresentar portfólio profissional com animações avançadas e design futurista.
+> Uma landing page moderna e interativa com tema cyberpunk, desenvolvida seguindo os **princípios SOLID** para apresentar portfólio profissional com animações avançadas, arquitetura limpa e design futurista.
 
 ## 📋 Índice
 
@@ -17,6 +18,7 @@
 - [💻 Uso](#-uso)
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🎨 Componentes](#-componentes)
+- [🏗️ Arquitetura SOLID](#️-arquitetura-solid)
 - [🤝 Contribuição](#-contribuição)
 - [📄 Licença](#-licença)
 - [👨‍💻 Autor](#-autor)
@@ -28,6 +30,7 @@ Este projeto é uma landing page pessoal com tema cyberpunk, desenvolvida para s
 ### 🎮 Características Principais
 
 - **Design Cyberpunk**: Interface futurista com neon, gradientes e efeitos visuais
+- **Arquitetura SOLID**: Código limpo seguindo princípios de design profissional
 - **Animações Avançadas**: Transições suaves, efeitos de glitch e animações coordenadas
 - **Responsivo**: Adaptável a todos os dispositivos e tamanhos de tela
 - **Performance**: Otimizado com Next.js 15 e Turbopack
@@ -252,6 +255,90 @@ cyberpunk_landingpage/
 - **useIntersectionObserver**: Detecta elementos na viewport
 - **usePagination**: Lógica de paginação reutilizável
 - **useTypingAnimation**: Efeito de digitação animada
+- **useAnimationController**: Controle avançado de animações
+
+## 🏗️ Arquitetura SOLID
+
+Este projeto foi desenvolvido seguindo **rigorosamente os princípios SOLID**, garantindo código limpo, manutenível e extensível:
+
+### 🔹 **SRP (Single Responsibility Principle)**
+Cada classe e componente possui uma única responsabilidade bem definida:
+
+- **`ScrollService`**: Gerencia exclusivamente operações de scroll
+- **`ValidationService`**: Responsável apenas por validação de formulários  
+- **`ProjectService`**: Gerencia dados e operações relacionadas a projetos
+- **`StatusService`**: Configura e gerencia status de projetos
+- **Componentes UI**: Cada um com responsabilidade específica de renderização
+
+### 🔹 **OCP (Open/Closed Principle)**
+Sistema aberto para extensão, fechado para modificação:
+
+```typescript
+// Extensível para novos tipos de status sem modificar código existente
+export class LiveStatusFactory extends StatusFactory {
+  createStatusConfig(): IStatusConfig { /* ... */ }
+}
+
+// Novas regras de validação podem ser adicionadas facilmente
+export class CustomValidationRule implements IValidationRule<string> {
+  validate(value: string): boolean { /* ... */ }
+}
+```
+
+### 🔹 **LSP (Liskov Substitution Principle)**
+Implementações são completamente substituíveis:
+
+- Qualquer `IProjectService` pode substituir `ProjectService`
+- Factories seguem contratos abstratos
+- Componentes respeitam interfaces definidas
+
+### 🔹 **ISP (Interface Segregation Principle)**
+Interfaces específicas e focadas:
+
+```typescript
+// Interfaces segregadas por responsabilidade
+interface IButtonBaseProps { /* propriedades básicas */ }
+interface IButtonInteractionProps { /* lógica de interação */ }  
+interface IButtonStyleProps { /* configurações visuais */ }
+
+// Interface completa composta pelas específicas
+interface IButtonProps extends IButtonBaseProps, IButtonInteractionProps, IButtonStyleProps {}
+```
+
+### 🔹 **DIP (Dependency Inversion Principle)**
+Dependência de abstrações, não de implementações:
+
+```typescript
+// Portfolio depende da abstração, não da implementação
+const projectService: IProjectService = ProjectServiceFactory.getInstance();
+
+// ScrollService fornece interface abstrata
+const scrollService: IScrollService = ScrollService;
+```
+
+### 🎯 **Benefícios da Arquitetura SOLID**
+
+- **🧪 Testabilidade**: Componentes isolados e facilmente testáveis
+- **🔧 Manutenibilidade**: Mudanças localizadas sem efeitos colaterais
+- **📈 Escalabilidade**: Fácil adição de novas funcionalidades
+- **🔄 Reutilização**: Código modular e reutilizável
+- **🐛 Debugging**: Problemas isolados e fáceis de identificar
+
+### 📁 **Estrutura SOLID**
+
+```
+src/
+├── services/           # Serviços de negócio (SRP)
+│   ├── projectService.ts
+│   ├── scrollService.ts
+│   └── validationService.ts
+├── factories/          # Factory patterns (OCP)
+│   └── statusFactory.ts
+├── hooks/             # Custom hooks (SRP)
+│   └── useAnimationController.ts
+└── types/             # Interfaces segregadas (ISP)
+    └── index.ts
+```
 
 ## 🤝 Contribuição
 
