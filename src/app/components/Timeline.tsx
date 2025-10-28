@@ -62,7 +62,7 @@ export default function Timeline() {
           }`} style={{ transitionDelay: '1200ms' }}>
             <div className={`text-3xl font-mono font-bold text-purple-400 mb-2 ${
               timelineVisible ? 'animate-cyberpunk-complete' : ''
-            }`} style={{ animationDelay: '1400ms' }}>3+</div>
+            }`} style={{ animationDelay: '1400ms' }}>4+</div>
             <div className={`text-sm text-gray-200 font-mono font-semibold ${
               timelineVisible ? 'animate-cyberpunk-typewriter' : ''
             }`} style={{ animationDelay: '1600ms' }}>ANOS DE EXPERIÊNCIA</div>
