@@ -35,17 +35,17 @@ export default function Contact() {
     <section id="contact" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+          <h2 className="text-4xl md:text-6xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4 opacity-0 animate-fade-in-down">
             &lt;CONTATO/&gt;
           </h2>
-          <p className="text-xl text-gray-300 font-mono">
+          <p className="text-xl text-gray-300 font-mono opacity-0 animate-fade-in-up animate-delay-200">
             Vamos construir algo incrível juntos
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Formulário de Contato */}
-          <div className="space-y-6">
+          <div className="space-y-6 opacity-0 animate-slide-in-left animate-delay-400">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-mono text-purple-400 mb-2">
@@ -131,7 +131,7 @@ export default function Contact() {
           </div>
 
           {/* Informações de Contato e Links Sociais */}
-          <div className="space-y-8">
+          <div className="space-y-8 opacity-0 animate-slide-in-right animate-delay-600">
             {/* Métodos de Contato */}
             <div className="space-y-6">
               <div className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30">

@@ -31,7 +31,7 @@ export default function Hero() {
 
         <div className="relative z-10">
           {/* Nome */}
-          <h1 className="text-6xl md:text-8xl font-mono font-bold mb-4">
+          <h1 className="text-6xl md:text-8xl font-mono font-bold mb-4 opacity-0 animate-fade-in-up">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-pulse">
               ANTHONY
             </span>
@@ -41,14 +41,14 @@ export default function Hero() {
           </h1>
 
           {/* Título */}
-          <div className="text-2xl md:text-4xl font-mono text-green-400 mb-6 tracking-wider">
+          <div className="text-2xl md:text-4xl font-mono text-green-400 mb-6 tracking-wider opacity-0 animate-fade-in-up animate-delay-200">
             <span className="border-r-2 border-green-400 animate-pulse">
               FULLSTACK DEVELOPER / Software Engineer
             </span>
           </div>
 
           {/* Slogan Animado */}
-          <div className="text-xl md:text-2xl text-gray-300 mb-12 h-8">
+          <div className="text-xl md:text-2xl text-gray-300 mb-12 h-8 opacity-0 animate-fade-in-up animate-delay-400">
             <span className="font-mono">
               {text}
               <span className="animate-pulse text-purple-400">|</span>
@@ -56,9 +56,9 @@ export default function Hero() {
           </div>
 
           {/* Botões de Ação */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-fade-in-up animate-delay-600">
             <button 
-              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105"
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105 animate-glow-pulse"
               style={{ cursor: 'pointer' }}
             >
               <span className="relative z-10">VER PROJETOS</span>
@@ -75,7 +75,7 @@ export default function Hero() {
           </div>
 
           {/* Indicador de Scroll */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-12 opacity-0 animate-fade-in-up animate-delay-800">
             <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-purple-400 rounded-full mt-2 animate-bounce"></div>
             </div>
