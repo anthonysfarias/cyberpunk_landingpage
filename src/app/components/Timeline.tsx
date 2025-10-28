@@ -57,24 +57,48 @@ export default function Timeline() {
 
         {/* Seção de Estatísticas */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
-          <div className="text-center p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30">
-            <div className="text-3xl font-mono font-bold text-purple-400 mb-2">3+</div>
-            <div className="text-sm text-gray-400 font-mono">ANOS DE EXPERIÊNCIA</div>
+          <div className={`text-center p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30 transition-all duration-500 ${
+            timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`} style={{ transitionDelay: '1200ms' }}>
+            <div className={`text-3xl font-mono font-bold text-purple-400 mb-2 ${
+              timelineVisible ? 'animate-cyberpunk-complete' : ''
+            }`} style={{ animationDelay: '1400ms' }}>3+</div>
+            <div className={`text-sm text-gray-200 font-mono font-semibold ${
+              timelineVisible ? 'animate-cyberpunk-typewriter' : ''
+            }`} style={{ animationDelay: '1600ms' }}>ANOS DE EXPERIÊNCIA</div>
           </div>
           
-          <div className="text-center p-6 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 rounded-lg border border-cyan-500/30">
-            <div className="text-3xl font-mono font-bold text-cyan-400 mb-2">15+</div>
-            <div className="text-sm text-gray-400 font-mono">PROJETOS CONCLUÍDOS</div>
+          <div className={`text-center p-6 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 rounded-lg border border-cyan-500/30 transition-all duration-500 ${
+            timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`} style={{ transitionDelay: '1400ms' }}>
+            <div className={`text-3xl font-mono font-bold text-cyan-400 mb-2 ${
+              timelineVisible ? 'animate-cyberpunk-complete' : ''
+            }`} style={{ animationDelay: '1600ms' }}>15+</div>
+            <div className={`text-sm text-gray-200 font-mono font-semibold ${
+              timelineVisible ? 'animate-cyberpunk-typewriter' : ''
+            }`} style={{ animationDelay: '1800ms' }}>PROJETOS CONCLUÍDOS</div>
           </div>
           
-          <div className="text-center p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30">
-            <div className="text-3xl font-mono font-bold text-green-400 mb-2">10+</div>
-            <div className="text-sm text-gray-400 font-mono">TECNOLOGIAS DOMINADAS</div>
+          <div className={`text-center p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30 transition-all duration-500 ${
+            timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`} style={{ transitionDelay: '1600ms' }}>
+            <div className={`text-3xl font-mono font-bold text-green-400 mb-2 ${
+              timelineVisible ? 'animate-cyberpunk-complete' : ''
+            }`} style={{ animationDelay: '1800ms' }}>10+</div>
+            <div className={`text-sm text-gray-200 font-mono font-semibold ${
+              timelineVisible ? 'animate-cyberpunk-typewriter' : ''
+            }`} style={{ animationDelay: '2000ms' }}>TECNOLOGIAS DOMINADAS</div>
           </div>
           
-          <div className="text-center p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-lg border border-orange-500/30">
-            <div className="text-3xl font-mono font-bold text-orange-400 mb-2">100%</div>
-            <div className="text-sm text-gray-400 font-mono">DEDICAÇÃO</div>
+          <div className={`text-center p-6 bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-lg border border-orange-500/30 transition-all duration-500 ${
+            timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`} style={{ transitionDelay: '1800ms' }}>
+            <div className={`text-3xl font-mono font-bold text-orange-400 mb-2 ${
+              timelineVisible ? 'animate-cyberpunk-complete' : ''
+            }`} style={{ animationDelay: '2000ms' }}>100%</div>
+            <div className={`text-sm text-gray-200 font-mono font-semibold ${
+              timelineVisible ? 'animate-cyberpunk-typewriter' : ''
+            }`} style={{ animationDelay: '2200ms' }}>DEDICAÇÃO</div>
           </div>
         </div>
       </div>

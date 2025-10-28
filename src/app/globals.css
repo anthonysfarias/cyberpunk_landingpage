@@ -377,3 +377,143 @@ html {
 .animate-delay-600 { animation-delay: 0.6s; }
 .animate-delay-700 { animation-delay: 0.7s; }
 .animate-delay-800 { animation-delay: 0.8s; }
+
+/* Cyberpunk text animations */
+@keyframes cyberpunkGlitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  20% {
+    transform: translate(2px, -1px);
+    filter: hue-rotate(180deg);
+  }
+  30% {
+    transform: translate(-1px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  40% {
+    transform: translate(1px, -2px);
+    filter: hue-rotate(360deg);
+  }
+  50% {
+    transform: translate(-2px, -1px);
+    filter: hue-rotate(90deg);
+  }
+  60% {
+    transform: translate(2px, 1px);
+    filter: hue-rotate(180deg);
+  }
+  70% {
+    transform: translate(-1px, -2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(1px, 2px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes cyberpunkTypewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes cyberpunkFlicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px currentColor;
+  }
+  25%, 75% {
+    opacity: 0.8;
+    text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  50% {
+    opacity: 0.9;
+    text-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+  }
+}
+
+@keyframes cyberpunkComplete {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+    text-shadow: 0 0 10px currentColor;
+  }
+  10% {
+    transform: translate(-2px, 1px);
+    filter: hue-rotate(90deg);
+    text-shadow: 0 0 15px currentColor;
+  }
+  20% {
+    transform: translate(2px, -1px);
+    filter: hue-rotate(180deg);
+    text-shadow: 0 0 20px currentColor;
+  }
+  30% {
+    transform: translate(-1px, 2px);
+    filter: hue-rotate(270deg);
+    text-shadow: 0 0 25px currentColor;
+  }
+  40% {
+    transform: translate(1px, -2px);
+    filter: hue-rotate(360deg);
+    text-shadow: 0 0 20px currentColor;
+  }
+  50% {
+    transform: translate(-2px, -1px);
+    filter: hue-rotate(90deg);
+    text-shadow: 0 0 30px currentColor;
+  }
+  60% {
+    transform: translate(2px, 1px);
+    filter: hue-rotate(180deg);
+    text-shadow: 0 0 25px currentColor;
+  }
+  70% {
+    transform: translate(-1px, -2px);
+    filter: hue-rotate(270deg);
+    text-shadow: 0 0 20px currentColor;
+  }
+  80% {
+    transform: translate(1px, 2px);
+    filter: hue-rotate(360deg);
+    text-shadow: 0 0 15px currentColor;
+  }
+  90%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+    text-shadow: none;
+  }
+}
+
+.animate-cyberpunk-glitch {
+  animation: cyberpunkGlitch 0.5s ease-in-out;
+}
+
+.animate-cyberpunk-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: cyberpunkTypewriter 1s steps(20) forwards;
+}
+
+.animate-cyberpunk-flicker {
+  animation: cyberpunkFlicker 1.5s ease-in-out;
+}
+
+.animate-cyberpunk-complete {
+  animation: cyberpunkComplete 2s ease-in-out forwards;
+}
