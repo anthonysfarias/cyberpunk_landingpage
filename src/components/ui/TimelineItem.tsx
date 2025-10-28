@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ITimelineItem } from '@/types';
-import { FaBriefcase, FaGraduationCap, FaCode, FaRocket } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaCode, FaRocket, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 interface TimelineItemProps {
@@ -26,6 +26,15 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
   const IconComponent = iconMap[item.icon as keyof typeof iconMap];
   const { ref, isVisible } = useIntersectionObserver(0.3);
   const divRef = ref as React.RefObject<HTMLDivElement>;
+  
+  // Estado para controlar o collapse das tecnologias
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  // Determina se deve mostrar o botão de collapse (mais de 6 tecnologias)
+  const shouldShowCollapse = item.technologies.length > 6;
+  const displayedTechnologies = shouldShowCollapse && !isExpanded 
+    ? item.technologies.slice(0, 6) 
+    : item.technologies;
 
   const getTypeLabel = (type: ITimelineItem['type']) => {
     switch (type) {
@@ -99,15 +108,42 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
             </p>
 
             {/* Tecnologias */}
-            <div className={`flex flex-wrap gap-2 ${isLeft ? 'justify-end' : 'justify-start'}`}>
-              {item.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded border border-purple-500/30"
-                >
-                  {tech}
-                </span>
-              ))}
+            <div className="space-y-3">
+              <div className={`flex flex-wrap gap-2 ${isLeft ? 'justify-end' : 'justify-start'} transition-all duration-500`}>
+                {displayedTechnologies.map((tech, techIndex) => (
+                  <span
+                    key={tech}
+                    className={`px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded border border-purple-500/30 transition-all duration-300 ${
+                      shouldShowCollapse && !isExpanded && techIndex >= 4 
+                        ? 'animate-fade-in-up' 
+                        : ''
+                    }`}
+                    style={{
+                      animationDelay: shouldShowCollapse && !isExpanded && techIndex >= 4 
+                        ? `${(techIndex - 4) * 50}ms` 
+                        : '0ms'
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              
+              {/* Botão de Collapse - Apenas Seta */}
+              {shouldShowCollapse && (
+                <div className={`flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="group w-8 h-8 bg-gradient-to-r from-purple-600/20 to-pink-600/20 hover:from-purple-600/40 hover:to-pink-600/40 text-purple-300 hover:text-white rounded-full border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 transform hover:scale-110 flex items-center justify-center cursor-pointer"
+                  >
+                    {isExpanded ? (
+                      <FaChevronUp className="text-sm group-hover:animate-bounce" />
+                    ) : (
+                      <FaChevronDown className="text-sm group-hover:animate-bounce" />
+                    )}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
