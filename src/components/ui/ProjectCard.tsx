@@ -22,7 +22,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className="group relative bg-gray-900/50 rounded-lg border border-purple-500/20 overflow-hidden hover:border-purple-500/60 transition-all duration-500 cursor-pointer animate-fadeInUp"
+      className="group relative bg-gray-900/50 rounded-lg border border-purple-500/20 overflow-hidden transition-all duration-500 cursor-pointer animate-fadeInUp"
       onMouseEnter={() => onHover(project.id)}
       onMouseLeave={() => onHover(null)}
       style={{ 
@@ -30,8 +30,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         animationFillMode: 'both'
       }}
     >
-      {/* Background Glow */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+      {/* Cyberpunk Border Effects - Only on edges */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        {/* Glowing border effect */}
+        <div className="absolute inset-0 rounded-lg border-2 border-transparent animate-border-light"></div>
+        
+        {/* Glitch border effect */}
+        <div className="absolute inset-0 rounded-lg border-2 border-purple-500/40 animate-border-glitch"></div>
+      </div>
       
       {/* Project Image/Icon */}
       <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
@@ -39,7 +45,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-52 h-52 object-contain group-hover:scale-110 transition-transform duration-300"
+            className={`object-contain group-hover:scale-110 transition-transform duration-300 ${
+              project.image.includes('rbxrobotica') || project.image.includes('nplbrasil') 
+                ? 'w-32 h-32' 
+                : 'w-52 h-52'
+            }`}
           />
         ) : (
           <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
@@ -52,12 +62,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {StatusService.getStatusLabel(project.status)}
         </div>
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <Button variant="secondary" size="sm">
-            VER PROJETO
-          </Button>
-        </div>
       </div>
 
       {/* Project Info */}
@@ -84,21 +88,27 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Action Buttons */}
         <div className="flex gap-3">
-          <Button variant="primary" size="sm" className="flex-1">
+          <Button 
+            variant="primary" 
+            size="sm" 
+            className="flex-1"
+            disabled={!project.demoLink}
+            onClick={() => project.demoLink && window.open(project.demoLink, '_blank')}
+          >
             Demo
           </Button>
-          <Button variant="outline" size="sm" className="flex-1">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="flex-1"
+            disabled={!project.codeLink}
+            onClick={() => project.codeLink && window.open(project.codeLink, '_blank')}
+          >
             Code
           </Button>
         </div>
       </div>
 
-      {/* Glitch Effect */}
-      {isHovered && (
-        <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-5 animate-pulse`}></div>
-        </div>
-      )}
     </div>
   );
 };

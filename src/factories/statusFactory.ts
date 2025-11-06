@@ -54,12 +54,23 @@ export class DefaultStatusFactory extends StatusFactory {
   }
 }
 
+export class ComingSoonStatusFactory extends StatusFactory {
+  createStatusConfig(): IStatusConfig {
+    return {
+      cssClasses: 'bg-gray-500/20 text-gray-400 border-gray-500/50',
+      label: 'Em breve',
+      icon: '⏳'
+    };
+  }
+}
+
 // Factory principal que decide qual factory usar
 export class ProjectStatusFactory {
   private static factories: Map<IProject['status'], StatusFactory> = new Map([
     ['Live', new LiveStatusFactory()],
     ['Beta', new BetaStatusFactory()],
-    ['Em desenvolvimento', new DevelopmentStatusFactory()]
+    ['Em desenvolvimento', new DevelopmentStatusFactory()],
+    ['Em breve', new ComingSoonStatusFactory()]
   ]);
 
   static getStatusConfig(status: IProject['status']): IStatusConfig {

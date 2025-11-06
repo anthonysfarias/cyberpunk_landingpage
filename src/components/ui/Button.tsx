@@ -16,9 +16,15 @@ export const Button: React.FC<IButtonProps> = ({
   const baseClasses = 'font-mono font-bold rounded-lg transition-all duration-500 transform overflow-hidden relative group';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-pink-600 hover:to-purple-600 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50',
-    secondary: 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:scale-105',
-    outline: 'border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black hover:scale-105'
+    primary: disabled || isLoading 
+      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+      : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-pink-600 hover:to-purple-600 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50',
+    secondary: disabled || isLoading
+      ? 'bg-gray-800 text-gray-300'
+      : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:scale-105',
+    outline: disabled || isLoading
+      ? 'border-2 border-cyan-400 text-cyan-400'
+      : 'border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black hover:scale-105'
   };
 
   const sizeClasses = {
@@ -28,7 +34,7 @@ export const Button: React.FC<IButtonProps> = ({
   };
 
   const disabledClasses = disabled || isLoading 
-    ? 'opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none' 
+    ? 'opacity-50 cursor-not-allowed' 
     : 'cursor-pointer';
 
   const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses} ${className}`;

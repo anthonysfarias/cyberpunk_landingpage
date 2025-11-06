@@ -7,8 +7,10 @@ export interface IProject {
   tech: string[];
   image: string;
   color: string;
-  status: 'Live' | 'Beta' | 'Em desenvolvimento';
+  status: 'Live' | 'Beta' | 'Em desenvolvimento' | 'Em breve';
   link: string;
+  demoLink?: string;
+  codeLink?: string;
 }
 
 export interface ITechnology {
