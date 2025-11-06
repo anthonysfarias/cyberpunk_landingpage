@@ -34,7 +34,7 @@ export default function Timeline() {
         {/* Container da Timeline */}
         <div ref={timelineRef as React.RefObject<HTMLDivElement>} className="relative">
           {/* Linha Central */}
-          <div className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 transition-all duration-2000 ease-out ${
+          <div className={`absolute left-5 md:left-1/2 md:transform md:-translate-x-1/2 w-0.5 bg-gradient-to-b from-purple-500 via-pink-500 to-purple-500 transition-all duration-2000 ease-out ${
             timelineVisible 
               ? 'h-full opacity-30' 
               : 'h-0 opacity-0'

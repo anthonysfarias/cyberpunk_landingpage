@@ -26,8 +26,14 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
     return 3;
   };
   
-  const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
+  // Inicializa com 3 para evitar hidratação mismatch
+  const [itemsPerView, setItemsPerView] = useState(3);
   const maxIndex = Math.max(0, technologies.length - itemsPerView);
+
+  // Detecta o tamanho real no primeiro render do cliente
+  useEffect(() => {
+    setItemsPerView(getItemsPerView());
+  }, []);
 
   // Gerencia redimensionamento da janela
   useEffect(() => {

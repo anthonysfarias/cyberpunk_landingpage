@@ -65,18 +65,17 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
   return (
     <div 
       ref={divRef}
-      className={`flex items-center mb-12 transition-all duration-700 ${isLeft ? 'flex-row-reverse' : 'flex-row'} ${
+      className={`relative flex flex-row items-center mb-12 transition-all duration-700 ${isLeft ? 'md:flex-row-reverse' : 'md:flex-row'} ${
         isVisible 
           ? 'opacity-100 translate-y-0' 
-          : `opacity-0 ${isLeft ? 'translate-x-20' : '-translate-x-20'} translate-y-10`
+          : `opacity-0 translate-y-10`
       }`}
       style={{ 
         transitionDelay: `${index * 200}ms`,
-        transform: isVisible ? 'none' : `translateX(${isLeft ? '80px' : '-80px'}) translateY(40px)`
       }}
     >
       {/* Conteúdo */}
-      <div className={`w-5/12 ${isLeft ? 'text-right pr-8' : 'text-left pl-8'}`}>
+      <div className={`w-full md:w-5/12 pl-14 ${isLeft ? 'md:pl-0 md:pr-8 md:text-right' : 'md:pr-0 md:pl-8 md:text-left'}`}>
         <div className={`group relative p-6 bg-gray-900/50 rounded-lg border border-purple-500/20 hover:border-purple-500/60 transition-all duration-500 transform hover:scale-105 ${
           isVisible ? 'animate-slideInScale' : ''
         }`}>
@@ -85,7 +84,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
           
           <div className="relative z-10">
             {/* Ano e Tipo */}
-            <div className={`flex items-center gap-3 mb-3 ${isLeft ? 'justify-end' : 'justify-start'}`}>
+            <div className={`flex items-center gap-3 mb-3 justify-start ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
               <span className="text-2xl font-mono font-bold text-white">
                 {item.year}
               </span>
@@ -109,7 +108,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
 
             {/* Tecnologias */}
             <div className="space-y-3">
-              <div className={`flex flex-wrap gap-2 ${isLeft ? 'justify-end' : 'justify-start'} transition-all duration-500`}>
+              <div className={`flex flex-wrap gap-2 justify-start ${isLeft ? 'md:justify-end' : 'md:justify-start'} transition-all duration-500`}>
                 {displayedTechnologies.map((tech, techIndex) => (
                   <span
                     key={tech}
@@ -131,7 +130,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
               
               {/* Botão de Collapse - Apenas Seta */}
               {shouldShowCollapse && (
-                <div className={`flex ${isLeft ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex justify-start ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="group w-8 h-8 bg-gradient-to-r from-purple-600/20 to-pink-600/20 hover:from-purple-600/40 hover:to-pink-600/40 text-purple-300 hover:text-white rounded-full border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 transform hover:scale-110 flex items-center justify-center cursor-pointer"
@@ -150,15 +149,15 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
       </div>
 
       {/* Ícone da Timeline */}
-      <div className="w-2/12 flex justify-center">
-        <div className={`relative w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center shadow-lg transition-all duration-500 ${
+      <div className="absolute left-0 md:static md:w-2/12 md:flex md:justify-center">
+        <div className={`relative w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center shadow-lg transition-all duration-500 ${
           isVisible 
             ? 'scale-100 rotate-0 opacity-100' 
             : 'scale-0 rotate-180 opacity-0'
         } hover:scale-125 hover:shadow-2xl`}
         style={{ transitionDelay: `${index * 200 + 300}ms` }}>
           {IconComponent && (
-            <IconComponent className={`text-white text-xl transition-all duration-300 ${
+            <IconComponent className={`text-white text-base md:text-xl transition-all duration-300 ${
               isVisible ? 'animate-bounce' : ''
             }`} />
           )}
@@ -178,8 +177,8 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
         </div>
       </div>
 
-      {/* Espaço Vazio */}
-      <div className="w-5/12"></div>
+      {/* Espaço Vazio - Apenas no Desktop */}
+      <div className="hidden md:block md:w-5/12"></div>
     </div>
   );
 };
