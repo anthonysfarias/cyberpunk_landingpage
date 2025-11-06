@@ -65,29 +65,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       {/* Project Info */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col h-[310px]">
         <h3 className="text-xl font-mono font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
           {project.title}
         </h3>
         
-        <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+        <p className="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">
           {project.description}
         </p>
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tech.map((tech: string) => (
-            <span
-              key={tech}
-              className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded border border-purple-500/30"
-            >
-              {tech}
-            </span>
-          ))}
+        {/* Tech Stack with scroll */}
+        <div className="flex-1 mb-4 overflow-y-auto overflow-x-hidden custom-scrollbar">
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((tech: string) => (
+              <span
+                key={tech}
+                className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded border border-purple-500/30 whitespace-nowrap"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3">
+        {/* Action Buttons - Fixed position */}
+        <div className="flex gap-3 mt-auto">
           <Button 
             variant="primary" 
             size="sm" 
