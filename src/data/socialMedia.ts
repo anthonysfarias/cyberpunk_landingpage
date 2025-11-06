@@ -14,7 +14,7 @@ export const socialMediaData: ISocialMedia[] = [
   {
     name: 'LinkedIn',
     icon: 'FaLinkedin',
-    url: 'https://linkedin.com/in/anthonysfarias',
+    url: 'https://linkedin.com/in/anthony-farias',
     color: 'from-blue-500 to-cyan-400',
     hoverColor: 'hover:border-cyan-500/80',
     textColor: 'group-hover:text-cyan-400',
