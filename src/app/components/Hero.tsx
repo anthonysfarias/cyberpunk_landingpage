@@ -57,14 +57,15 @@ export default function Hero() {
 
           {/* Botões de Ação */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center opacity-0 animate-fade-in-up animate-delay-600">
-            <button 
+            <a 
+              href="#portfolio"
               className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-mono font-bold text-white overflow-hidden transition-all duration-300 hover:scale-105 animate-glow-pulse"
               style={{ cursor: 'pointer' }}
             >
               <span className="relative z-10">VER PROJETOS</span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-            </button>
+            </a>
             
             <button 
               className="group px-8 py-4 border-2 border-cyan-400 text-cyan-400 rounded-lg font-mono font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50"
