@@ -97,4 +97,5 @@ export interface ISocialMedia {
   hoverColor: string;
   textColor: string;
   description: string;
+  disabled?: boolean;
 }

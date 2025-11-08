@@ -48,15 +48,26 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
     <div className={`${getLayoutClasses()} ${className}`}>
       {socialMedia.map((social: ISocialMedia) => {
         const IconComponent = socialIconMap[social.icon as keyof typeof socialIconMap];
+        const isDisabled = social.disabled;
+        
+        const Component = isDisabled ? 'div' : 'a';
+        const componentProps = isDisabled 
+          ? {
+              className: `group relative p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 border-2 border-gray-600/30 rounded-xl transition-all duration-500 text-center backdrop-blur-sm overflow-hidden opacity-50 cursor-not-allowed`,
+              title: social.description
+            }
+          : {
+              href: social.url,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: `group relative p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 border-2 border-purple-500/20 rounded-xl ${social.hoverColor} transition-all duration-500 text-center hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/40 transform backdrop-blur-sm overflow-hidden`,
+              title: social.description
+            };
         
         return (
-          <a
+          <Component
             key={social.name}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group relative p-6 bg-gradient-to-br from-gray-900/80 to-gray-800/60 border-2 border-purple-500/20 rounded-xl ${social.hoverColor} transition-all duration-500 text-center hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/40 transform backdrop-blur-sm overflow-hidden`}
-            title={social.description}
+            {...componentProps}
           >
             {/* Background glow effect */}
             <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-20 transition-all duration-500 blur-sm`}></div>
@@ -97,7 +108,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
             {/* Corner accents */}
             <div className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-purple-400/0 group-hover:border-purple-400/80 transition-all duration-500"></div>
             <div className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-purple-400/0 group-hover:border-purple-400/80 transition-all duration-500"></div>
-          </a>
+          </Component>
         );
       })}
     </div>

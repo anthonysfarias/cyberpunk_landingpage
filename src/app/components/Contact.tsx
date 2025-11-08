@@ -179,7 +179,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-gray-400 font-mono text-sm">
-              © 2024 Alex Cyber. Desenvolvido com 💜 e muito ☕
+              © 2025 Anthony S Farias. Desenvolvido com 💜 e muito ☕
             </p>
             <p className="text-gray-500 font-mono text-xs mt-2">
               &lt;/html&gt; - Fim da transmissão

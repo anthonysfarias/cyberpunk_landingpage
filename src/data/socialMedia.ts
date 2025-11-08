@@ -9,52 +9,58 @@ export const socialMediaData: ISocialMedia[] = [
     color: 'from-purple-500 to-gray-400',
     hoverColor: 'hover:border-purple-500/80',
     textColor: 'group-hover:text-purple-400',
-    description: 'Repositórios e projetos'
+    description: 'Repositórios e projetos',
+    disabled: false
   },
   {
     name: 'LinkedIn',
     icon: 'FaLinkedin',
-    url: 'https://linkedin.com/in/anthony-farias',
+    url: 'https://br.linkedin.com/in/anthony-farias',
     color: 'from-blue-500 to-cyan-400',
     hoverColor: 'hover:border-cyan-500/80',
     textColor: 'group-hover:text-cyan-400',
-    description: 'Perfil profissional'
+    description: 'Perfil profissional',
+    disabled: false
   },
   {
     name: 'Twitter',
     icon: 'FaTwitter',
-    url: 'https://twitter.com/anthonysfarias',
+    url: '#',
     color: 'from-cyan-400 to-blue-500',
     hoverColor: 'hover:border-cyan-400/80',
     textColor: 'group-hover:text-cyan-300',
-    description: 'Atualizações e insights'
+    description: 'Em breve',
+    disabled: true
   },
   {
     name: 'Instagram',
     icon: 'FaInstagram',
-    url: 'https://instagram.com/anthonysfarias',
+    url: '#',
     color: 'from-pink-500 to-purple-500',
     hoverColor: 'hover:border-pink-500/80',
     textColor: 'group-hover:text-pink-400',
-    description: 'Conteúdo visual'
+    description: 'Em breve',
+    disabled: true
   },
   {
     name: 'Discord',
     icon: 'FaDiscord',
-    url: 'https://discord.gg/anthonysfarias',
+    url: '#',
     color: 'from-indigo-500 to-purple-600',
     hoverColor: 'hover:border-indigo-400/80',
     textColor: 'group-hover:text-indigo-400',
-    description: 'Comunidade e chat'
+    description: 'Em breve',
+    disabled: true
   },
   {
     name: 'YouTube',
     icon: 'FaYoutube',
-    url: 'https://youtube.com/@anthonysfarias',
+    url: '#',
     color: 'from-red-500 to-pink-500',
     hoverColor: 'hover:border-red-400/80',
     textColor: 'group-hover:text-red-400',
-    description: 'Tutoriais e conteúdo'
+    description: 'Em breve',
+    disabled: true
   }
 ];
 
