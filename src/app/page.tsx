@@ -8,6 +8,7 @@ import Timeline from './components/Timeline';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import { MobileMenu, MobileMenuButton } from '@/components/ui/MobileMenu';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -127,6 +128,9 @@ export default function Home() {
         isOpen={isMobileMenuOpen} 
         onClose={() => setIsMobileMenuOpen(false)} 
       />
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }
