@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ITechnology } from '@/types';
 import { TechCard } from './TechCard';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -13,8 +13,10 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
   technologies,
   category
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredTech, setHoveredTech] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
   // Itens responsivos por visualização
   const getItemsPerView = () => {
@@ -26,26 +28,52 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
     return 3;
   };
   
-  // Inicializa com 3 para evitar hidratação mismatch
   const [itemsPerView, setItemsPerView] = useState(3);
   const maxIndex = Math.max(0, technologies.length - itemsPerView);
 
   // Detecta o tamanho real no primeiro render do cliente
   useEffect(() => {
-    setItemsPerView(getItemsPerView());
+    const checkMobile = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth < 768);
+        setItemsPerView(getItemsPerView());
+      }
+    };
+    
+    checkMobile();
   }, []);
 
   // Gerencia redimensionamento da janela
   useEffect(() => {
     const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
       setItemsPerView(getItemsPerView());
-      setCurrentIndex(0); // Reseta para o primeiro slide no redimensionamento
+      setCurrentIndex(0);
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Detecta scroll para atualizar indicadores (apenas mobile)
+  useEffect(() => {
+    if (!isMobile) return;
+    
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.scrollWidth / technologies.length;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(newIndex);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [technologies.length, isMobile]);
+
+  // Navegação com setas (desktop)
   const goToPrevious = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
   };
@@ -54,11 +82,71 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
     setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
   };
 
-  const visibleTechnologies = technologies.slice(currentIndex, currentIndex + itemsPerView);
+  // Função para scroll suave até um índice específico (mobile)
+  const scrollToIndex = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const cardWidth = container.scrollWidth / technologies.length;
+    container.scrollTo({
+      left: cardWidth * index,
+      behavior: 'smooth'
+    });
+  };
 
+  // Renderização condicional: Mobile usa scroll, Desktop usa setas
+  if (isMobile) {
+    return (
+      <div className="relative">
+        {/* Container do Carrossel com Scroll Horizontal - MOBILE ONLY */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto gap-6 px-4 pb-4 scroll-smooth snap-x snap-mandatory hide-scrollbar"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+          }}
+        >
+          {technologies.map((tech, index) => (
+            <div
+              key={tech.name}
+              className="flex-shrink-0 snap-start snap-always"
+              style={{ width: 'calc(100% - 2rem)' }}
+            >
+              <TechCard
+                tech={tech}
+                index={index}
+                isHovered={hoveredTech === tech.name}
+                onHover={setHoveredTech}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Indicadores de Posição (Dots) - Mobile */}
+        <div className="flex justify-center mt-8 gap-2">
+          {technologies.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToIndex(index)}
+              className={`rounded-full transition-all duration-300 hover:scale-125 ${
+                currentIndex === index 
+                  ? 'w-8 h-2.5 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50' 
+                  : 'w-2.5 h-2.5 bg-gray-600/50 hover:bg-gray-500'
+              }`}
+              aria-label={`Ir para tecnologia ${index + 1}`}
+              style={{ cursor: 'pointer' }}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop: Carrossel com setas (comportamento original)
   return (
     <div className="relative">
-      {/* Botões de Navegação */}
+      {/* Botões de Navegação - DESKTOP ONLY */}
       {technologies.length > itemsPerView && (
         <>
           <button
@@ -81,7 +169,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
         </>
       )}
 
-      {/* Container do Carrossel */}
+      {/* Container do Carrossel - DESKTOP */}
       <div className="overflow-hidden px-4">
         <div 
           className="flex transition-transform duration-500 ease-in-out gap-8"
@@ -104,7 +192,7 @@ export const TechCarousel: React.FC<TechCarouselProps> = ({
         </div>
       </div>
 
-      {/* Indicadores */}
+      {/* Indicadores - DESKTOP */}
       {technologies.length > itemsPerView && (
         <div className="flex justify-center mt-8 gap-3">
           {Array.from({ length: maxIndex + 1 }, (_, i) => (

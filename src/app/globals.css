@@ -652,3 +652,25 @@ html {
 .animate-border-glitch {
   animation: cyberpunkGlitchBorder 0.3s ease-in-out infinite;
 }
+
+/* Hide scrollbar para scroll horizontal suave */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari e Opera */
+}
+
+/* Mobile menu animations */
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

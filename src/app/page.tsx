@@ -1,11 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Stack from './components/Stack';
 import Timeline from './components/Timeline';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import { MobileMenu, MobileMenuButton } from '@/components/ui/MobileMenu';
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Background Pattern */}
@@ -39,7 +44,10 @@ export default function Home() {
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-r-2 border-b-2 border-pink-400/0 group-hover:border-pink-400/80 transition-all duration-300"></div>
             </div>
 
-            {/* Navigation Items */}
+            {/* Mobile Menu Button */}
+            <MobileMenuButton onClick={() => setIsMobileMenuOpen(true)} />
+
+            {/* Navigation Items - Desktop */}
             <div className="hidden md:flex space-x-6 animate-fade-in-right">
               <a href="#hero" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.1s'}}>
                 <span className="relative z-10 tracking-wider">HOME</span>
@@ -113,6 +121,12 @@ export default function Home() {
         <Portfolio />
         <Contact />
       </main>
+
+      {/* Mobile Menu Drawer */}
+      <MobileMenu 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)} 
+      />
     </div>
   );
 }
