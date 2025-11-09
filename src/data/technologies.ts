@@ -19,7 +19,7 @@ export const technologiesData: Record<string, ITechnology[]> = {
     { name: 'GraphQL', icon: 'SiGraphql', color: 'from-pink-500 to-purple-500', description: 'Linguagem de Consulta' },
     { name: 'Python', icon: 'SiPython', color: 'from-blue-500 to-yellow-500', description: 'Linguagem de Programação' },
     { name: 'FastAPI', icon: 'SiFastapi', color: 'from-green-500 to-teal-500', description: 'Framework Python' },
-    { name: 'Java', icon: 'SiJava', color: 'from-red-600 to-orange-500', description: 'Linguagem de Programação' },
+    { name: 'Java', icon: 'FaJava', color: 'from-red-600 to-orange-500', description: 'Linguagem de Programação' },
     { name: 'Spring', icon: 'SiSpring', color: 'from-green-600 to-green-400', description: 'Framework Java' }
   ],
   database: [
@@ -42,9 +42,6 @@ export const technologiesData: Record<string, ITechnology[]> = {
   ],
   mobile: [
     { name: 'React Native', icon: 'SiReact', color: 'from-blue-400 to-cyan-400', description: 'Multiplataforma' },
-    { name: 'Flutter', icon: 'SiFlutter', color: 'from-blue-500 to-cyan-500', description: 'Framework Google' },
-    { name: 'Swift', icon: 'SiSwift', color: 'from-orange-500 to-red-500', description: 'Desenvolvimento iOS' },
-    { name: 'Kotlin', icon: 'SiKotlin', color: 'from-purple-500 to-blue-500', description: 'Desenvolvimento Android' },
     { name: 'Expo', icon: 'SiExpo', color: 'from-gray-800 to-blue-600', description: 'Plataforma React Native' }
   ],
   tools: [

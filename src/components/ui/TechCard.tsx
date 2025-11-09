@@ -34,9 +34,6 @@ import {
   SiTerraform,
   SiNginx,
   SiReact,
-  SiFlutter,
-  SiSwift,
-  SiKotlin,
   SiExpo,
   SiFigma,
   SiPostman,
@@ -85,9 +82,6 @@ const iconMap = {
   SiTerraform,
   SiNginx,
   SiReact,
-  SiFlutter,
-  SiSwift,
-  SiKotlin,
   SiExpo,
   SiFigma,
   SiPostman,
@@ -140,9 +134,6 @@ export const TechCard: React.FC<TechCardProps> = ({
       'SiTerraform': '#623CE4',    // Terraform roxo oficial
       'SiNginx': '#009639',        // Nginx verde oficial
       'SiReact': '#61DAFB',        // React Native (mesmo do React)
-      'SiFlutter': '#02569B',      // Flutter azul oficial
-      'SiSwift': '#FA7343',        // Swift laranja oficial
-      'SiKotlin': '#7F52FF',       // Kotlin roxo oficial
       'SiExpo': '#000020',         // Expo escuro oficial
       'SiFigma': '#F24E1E',        // Figma vermelho oficial
       'SiPostman': '#FF6C37',      // Postman laranja oficial
