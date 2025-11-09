@@ -385,7 +385,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👨‍💻 Autor
 
 **Anthony S Farias**
-- 🌐 Website: [anthonysfarias.dev](https://anthonysfarias.dev)
+- 🌐 Website: [anthonysfarias.vercel.app](https://anthonysfarias.vercel.app/)
 - 💼 LinkedIn: [@anthony-farias](https://br.linkedin.com/in/anthony-farias)
 - 📧 Email: anthony.farias10@outlook.com
 - 💬 WhatsApp: +55 (11) 95468-4812
