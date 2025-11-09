@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { SocialLinks } from '@/components/ui/SocialLinks';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -139,7 +140,9 @@ export default function Contact() {
             <div className="space-y-6">
               <div className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg border border-purple-500/30">
                 <div className="flex items-center space-x-4">
-                  <div className="text-2xl">📧</div>
+                  <div className="w-12 h-12 rounded-lg bg-purple-600/30 flex items-center justify-center">
+                    <FaEnvelope className="text-2xl text-purple-400" />
+                  </div>
                   <div>
                     <h3 className="font-mono font-bold text-purple-400">EMAIL</h3>
                     <p className="text-gray-300 font-mono">anthony.farias10@outlook.com</p>
@@ -147,21 +150,25 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="p-6 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 rounded-lg border border-cyan-500/30">
+              <div className="p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30">
                 <div className="flex items-center space-x-4">
-                  <div className="text-2xl">📱</div>
+                  <div className="w-12 h-12 rounded-lg bg-green-600/30 flex items-center justify-center">
+                    <FaWhatsapp className="text-2xl text-green-400" />
+                  </div>
                   <div>
-                    <h3 className="font-mono font-bold text-cyan-400">TELEFONE</h3>
+                    <h3 className="font-mono font-bold text-green-400">WHATSAPP</h3>
                     <p className="text-gray-300 font-mono">+55 (11) 95468-4812</p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 bg-gradient-to-br from-green-900/20 to-teal-900/20 rounded-lg border border-green-500/30">
+              <div className="p-6 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 rounded-lg border border-cyan-500/30">
                 <div className="flex items-center space-x-4">
-                  <div className="text-2xl">📍</div>
+                  <div className="w-12 h-12 rounded-lg bg-cyan-600/30 flex items-center justify-center">
+                    <FaMapMarkerAlt className="text-2xl text-cyan-400" />
+                  </div>
                   <div>
-                    <h3 className="font-mono font-bold text-green-400">LOCALIZAÇÃO</h3>
+                    <h3 className="font-mono font-bold text-cyan-400">LOCALIZAÇÃO</h3>
                     <p className="text-gray-300 font-mono">São Paulo, Brasil</p>
                   </div>
                 </div>
