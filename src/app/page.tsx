@@ -51,7 +51,7 @@ export default function Home() {
             {/* Navigation Items - Desktop */}
             <div className="hidden md:flex space-x-6 animate-fade-in-right">
               <a href="#hero" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.1s'}}>
-                <span className="relative z-10 tracking-wider">HOME</span>
+                <span className="relative z-10 tracking-wider">INÍCIO</span>
                 {/* Hover background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/20 to-purple-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
                 {/* Underline */}
@@ -62,7 +62,7 @@ export default function Home() {
               </a>
 
               <a href="#about" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.2s'}}>
-                <span className="relative z-10 tracking-wider">ABOUT</span>
+                <span className="relative z-10 tracking-wider">SOBRE</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/20 to-purple-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
                 <div className="absolute -left-1 top-1/2 w-1 h-4 bg-purple-400/0 group-hover:bg-purple-400/60 transition-all duration-300 transform -translate-y-1/2 blur-sm"></div>
@@ -78,7 +78,7 @@ export default function Home() {
               </a>
 
               <a href="#timeline" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.4s'}}>
-                <span className="relative z-10 tracking-wider">TIMELINE</span>
+                <span className="relative z-10 tracking-wider">LINHA DO TEMPO</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/20 to-purple-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
                 <div className="absolute -left-1 top-1/2 w-1 h-4 bg-purple-400/0 group-hover:bg-purple-400/60 transition-all duration-300 transform -translate-y-1/2 blur-sm"></div>
@@ -86,7 +86,7 @@ export default function Home() {
               </a>
 
               <a href="#portfolio" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.5s'}}>
-                <span className="relative z-10 tracking-wider">PORTFOLIO</span>
+                <span className="relative z-10 tracking-wider">PORTFÓLIO</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/20 to-purple-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
                 <div className="absolute -left-1 top-1/2 w-1 h-4 bg-purple-400/0 group-hover:bg-purple-400/60 transition-all duration-300 transform -translate-y-1/2 blur-sm"></div>
@@ -94,7 +94,7 @@ export default function Home() {
               </a>
 
               <a href="#contact" className="nav-item group relative px-3 py-2 font-mono font-semibold text-sm text-gray-300 hover:text-white transition-all duration-300 overflow-hidden" style={{animationDelay: '0.6s'}}>
-                <span className="relative z-10 tracking-wider">CONTACT</span>
+                <span className="relative z-10 tracking-wider">CONTATO</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/20 to-purple-600/0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-center"></div>
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300"></div>
                 <div className="absolute -left-1 top-1/2 w-1 h-4 bg-purple-400/0 group-hover:bg-purple-400/60 transition-all duration-300 transform -translate-y-1/2 blur-sm"></div>

@@ -58,7 +58,8 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                  disabled
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 opacity-50 cursor-not-allowed"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -74,7 +75,8 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300"
+                  disabled
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 opacity-50 cursor-not-allowed"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -89,17 +91,18 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-purple-500/30 rounded-lg text-white font-mono focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 resize-none opacity-50 cursor-not-allowed"
                   placeholder="Conte-me sobre seu projeto..."
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled
                 className="group relative w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-mono font-bold rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:shadow-purple-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none transform overflow-hidden"
-                style={{ cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                style={{ cursor: 'not-allowed' }}
               >
                 {/* Efeito Shimmer */}
                 {!isSubmitting && (

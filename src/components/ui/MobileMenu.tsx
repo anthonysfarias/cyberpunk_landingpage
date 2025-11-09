@@ -25,12 +25,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   const menuItems = [
-    { href: '#hero', icon: FaHome, label: 'HOME', color: 'from-purple-400 to-purple-600' },
-    { href: '#about', icon: FaUser, label: 'ABOUT', color: 'from-blue-400 to-blue-600' },
+    { href: '#hero', icon: FaHome, label: 'INÍCIO', color: 'from-purple-400 to-purple-600' },
+    { href: '#about', icon: FaUser, label: 'SOBRE', color: 'from-blue-400 to-blue-600' },
     { href: '#stack', icon: FaCode, label: 'STACK', color: 'from-cyan-400 to-cyan-600' },
-    { href: '#timeline', icon: FaClock, label: 'TIMELINE', color: 'from-pink-400 to-pink-600' },
-    { href: '#portfolio', icon: FaBriefcase, label: 'PORTFOLIO', color: 'from-orange-400 to-orange-600' },
-    { href: '#contact', icon: FaEnvelope, label: 'CONTACT', color: 'from-green-400 to-green-600' },
+    { href: '#timeline', icon: FaClock, label: 'LINHA DO TEMPO', color: 'from-pink-400 to-pink-600' },
+    { href: '#portfolio', icon: FaBriefcase, label: 'PORTFÓLIO', color: 'from-orange-400 to-orange-600' },
+    { href: '#contact', icon: FaEnvelope, label: 'CONTATO', color: 'from-green-400 to-green-600' },
   ];
 
   const handleLinkClick = () => {
