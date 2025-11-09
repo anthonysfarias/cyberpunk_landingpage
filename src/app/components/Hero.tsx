@@ -31,7 +31,7 @@ export default function Hero() {
 
         <div className="relative z-10">
           {/* Nome */}
-          <h1 className="text-6xl md:text-8xl font-mono font-bold mb-4 opacity-0 animate-fade-in-up">
+          <h1 className="text-5xl md:text-8xl font-mono font-bold mb-4 opacity-0 animate-fade-in-up">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-pulse">
               ANTHONY
             </span>
