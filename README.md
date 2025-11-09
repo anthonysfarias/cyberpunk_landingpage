@@ -50,10 +50,13 @@ Este projeto é uma landing page pessoal com tema cyberpunk, desenvolvida para s
 ### 🎨 Efeitos Visuais
 
 - **Animações Cyberpunk**: Glitch, typewriter, flicker effects
-- **Navbar Interativo**: Hover effects e animações de entrada
+- **Navbar Interativo**: Hover effects e animações de entrada em Português
+- **Menu Mobile**: Drawer lateral moderno com animações suaves
 - **Scroll Suave**: Navegação automática entre seções
+- **Scroll to Top**: Botão flutuante com animação pulsante
 - **Loading States**: Feedback visual durante transições
 - **Responsive Design**: Layout adaptativo para mobile/desktop
+- **Stack Responsivo**: Scroll horizontal no mobile, setas no desktop
 
 ### 🔧 Funcionalidades Técnicas
 
@@ -209,8 +212,12 @@ cyberpunk_landingpage/
 │   │       ├── ProjectCard.tsx
 │   │       ├── TimelineItem.tsx
 │   │       ├── TechTabs.tsx
+│   │       ├── TechCarousel.tsx
+│   │       ├── TechCard.tsx
 │   │       ├── Pagination.tsx
-│   │       └── SocialLinks.tsx
+│   │       ├── SocialLinks.tsx
+│   │       ├── MobileMenu.tsx
+│   │       └── ScrollToTop.tsx
 │   ├── 📁 data/             # Dados estáticos
 │   │   ├── projects.ts
 │   │   ├── timeline.ts
@@ -247,8 +254,12 @@ cyberpunk_landingpage/
 - **ProjectCard**: Card de projeto com hover effects
 - **TimelineItem**: Item da timeline com animações
 - **TechTabs**: Navegação por abas de tecnologias
+- **TechCarousel**: Carrossel responsivo de tecnologias (mobile: scroll, desktop: setas)
+- **TechCard**: Card individual de tecnologia com cores oficiais
 - **Pagination**: Paginação com scroll automático
-- **SocialLinks**: Links para redes sociais
+- **SocialLinks**: Links para redes sociais com estados desabilitados
+- **MobileMenu**: Menu drawer lateral com animações
+- **ScrollToTop**: Botão flutuante para voltar ao topo
 
 ### 🎪 Custom Hooks
 
@@ -373,10 +384,11 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-**Anthony Farias**
+**Anthony S Farias**
 - 🌐 Website: [anthonysfarias.dev](https://anthonysfarias.dev)
-- 💼 LinkedIn: [@anthonysfarias](https://linkedin.com/in/anthonysfarias)
-- 📧 Email: akileslive.farias10@gmail.com
+- 💼 LinkedIn: [@anthony-farias](https://br.linkedin.com/in/anthony-farias)
+- 📧 Email: anthony.farias10@outlook.com
+- 💬 WhatsApp: +55 (11) 95468-4812
 - 🐱 GitHub: [@anthonysfarias](https://github.com/anthonysfarias)
 
 ---
