@@ -21,25 +21,42 @@ import {
   SiTailwindcss,
   SiSass,
   SiVite,
+  SiJquery,
   SiExpress,
   SiNestjs,
   SiPython,
   SiFastapi,
   SiSpring,
+  SiSocketdotio,
+  SiPandas,
+  SiPytest,
   SiMysql,
   SiSqlite,
   SiFirebase,
   SiGithubactions,
   SiJenkins,
   SiTerraform,
+  SiAnsible,
   SiNginx,
+  SiUbuntu,
+  SiGrafana,
+  SiGoogledrive,
   SiReact,
   SiExpo,
   SiFigma,
   SiPostman,
+  SiInsomnia,
+  SiSwagger,
   SiJira,
+  SiTrello,
   SiSlack,
-  SiNotion
+  SiNotion,
+  SiDiagramsdotnet,
+  SiLucid,
+  SiJest,
+  SiVitest,
+  SiSelenium,
+  SiMarkdown
 } from 'react-icons/si';
 
 interface TechCardProps {
@@ -68,26 +85,43 @@ const iconMap = {
   SiTailwindcss,
   SiSass,
   SiVite,
+  SiJquery,
   SiExpress,
   SiNestjs,
   SiPython,
   SiFastapi,
   FaJava,
   SiSpring,
+  SiSocketdotio,
+  SiPandas,
+  SiPytest,
   SiMysql,
   SiSqlite,
   SiFirebase,
   SiGithubactions,
   SiJenkins,
   SiTerraform,
+  SiAnsible,
   SiNginx,
+  SiUbuntu,
+  SiGrafana,
+  SiGoogledrive,
   SiReact,
   SiExpo,
   SiFigma,
   SiPostman,
+  SiInsomnia,
+  SiSwagger,
   SiJira,
+  SiTrello,
   SiSlack,
-  SiNotion
+  SiNotion,
+  SiDiagramsdotnet,
+  SiLucid,
+  SiJest,
+  SiVitest,
+  SiSelenium,
+  SiMarkdown
 };
 
 // SRP: Responsabilidade única - apenas renderiza cards de tecnologia
@@ -133,13 +167,31 @@ export const TechCard: React.FC<TechCardProps> = ({
       'SiJenkins': '#D24939',      // Jenkins vermelho oficial
       'SiTerraform': '#623CE4',    // Terraform roxo oficial
       'SiNginx': '#009639',        // Nginx verde oficial
+      'SiJquery': '#0769AD',       // jQuery azul oficial
+      'SiSocketdotio': '#25c2a0',  // Socket.io verde-água oficial
+      'SiPandas': '#FFFFFF',       // Pandas azul-roxo oficial
+      'SiPytest': '#0A9EDC',       // Pytest azul oficial
+      'SiMicrosoft': '#0078D4', // Azure azul oficial
+      'SiAnsible': '#FFFFFF',      // Ansible preto oficial
+      'SiUbuntu': '#E95420',       // Ubuntu laranja oficial
+      'SiGrafana': '#F46800',      // Grafana laranja oficial
       'SiReact': '#61DAFB',        // React Native (mesmo do React)
       'SiExpo': '#000020',         // Expo escuro oficial
       'SiFigma': '#F24E1E',        // Figma vermelho oficial
       'SiPostman': '#FF6C37',      // Postman laranja oficial
+      'SiInsomnia': '#5849BE',     // Insomnia roxo oficial
+      'SiSwagger': '#85EA2D',      // Swagger verde oficial
       'SiJira': '#0052CC',         // Jira azul oficial
+      'SiTrello': '#0079BF',       // Trello azul oficial
       'SiSlack': '#4A154B',        // Slack roxo oficial
-      'SiNotion': '#000000'        // Notion preto oficial
+      'SiNotion': '#000000',       // Notion preto oficial
+      'SiDiagramsdotnet': '#F08705', // Draw.io laranja oficial
+      'SiLucid': '#FF6900',        // Lucidchart laranja oficial
+      'SiJest': '#C21325',         // Jest vermelho oficial
+      'SiVitest': '#729B1B',       // Vitest verde oficial
+      'SiSelenium': '#43B02A',     // Selenium verde oficial
+      'SiMarkdown': '#000000',      // Markdown preto oficial
+      'SiGoogledrive': '#4285F4'   // Google Drive azul oficial
     };
     return colorMap[iconName] || '#8B5CF6'; // Roxo padrão se não encontrado
   };
